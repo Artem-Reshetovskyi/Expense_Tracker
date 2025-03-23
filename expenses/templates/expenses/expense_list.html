@@ -11,7 +11,8 @@
 </head>
 <body>
     <h1>Expense List</h1>
-    <!-- Filter Form -->
+    <a href="{% url 'add_expense' %}"><button>Add Expense</button></a>
+    <!-- Filter Form and Sort_by-->
     <form method="get" action="{% url 'expense_list' %}">
         <label for="category">Filter by Category:</label>
         <select name="category" id="category">
@@ -23,9 +24,6 @@
             <option value="other">Other</option>
         </select>
         <button type="submit">Filter</button>
-    </form>
-    <!-- Sort_by -->
-    <form method="get" action="{% url 'expense_list' %}">
         <label for="sort_by">Sort by:</label>
         <select name="sort_by" id="sort_by">
             <option value="">Select</option>
@@ -50,6 +48,17 @@
                     <td>{{ expense.get_category_display }}</td>
                     <td>{{ expense.name }}</td>
                     <td>{{ expense.amount }}</td>
+                    <td>
+                        <form action="{% url 'edit_expense' expense.id %}" method="get">
+                             <button type="submit">Edit</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="{% url 'delete_expense' expense.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" style="background-color: red; color: white;">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
