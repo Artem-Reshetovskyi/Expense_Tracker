@@ -1,0 +1,58 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Expense List</h1>
+    <!-- Filter Form -->
+    <form method="get" action="{% url 'expense_list' %}">
+        <label for="category">Filter by Category:</label>
+        <select name="category" id="category">
+            <option value="">All Categories</option>
+            <option value="food">Food</option>
+            <option value="transport">Transport</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="bills">Bills</option>
+            <option value="other">Other</option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+    <!-- Sort_by -->
+    <form method="get" action="{% url 'expense_list' %}">
+        <label for="sort_by">Sort by:</label>
+        <select name="sort_by" id="sort_by">
+            <option value="">Select</option>
+            <option value="amount">Amount</option>
+            <option value="date">Date</option>
+        </select>
+        <button type="submit">Sort</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Amount</th>              
+            </tr>
+        </thead>
+        <tbody>
+            {% for expense in expenses %}
+                <tr>
+                    <td>{{ expense.date }}</td>
+                    <td>{{ expense.get_category_display }}</td>
+                    <td>{{ expense.name }}</td>
+                    <td>{{ expense.amount }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
