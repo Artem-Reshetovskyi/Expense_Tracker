@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Expense
 from .forms import ExpenseForm
+from django.db.models import Q
 
 
 def expense_list(request):
@@ -9,12 +10,14 @@ def expense_list(request):
     expenses = Expense.objects.all()  # За замовчуванням беремо всі витрати
 
     if category:
-        expenses = expenses.filter(category=category)  # Фільтруємо за категорією, якщо вона передана
+        expenses = expenses.filter(
+            category=category
+        )  # Фільтруємо за категорією, якщо вона передана
     if sort_by:
-        if sort_by == 'amount':
-            expenses = expenses.order_by('amount')  # Сортуємо за сумою
-        elif sort_by == 'date':
-            expenses = expenses.order_by('date')  # Сортуємо за датою
+        if sort_by == "amount":
+            expenses = expenses.order_by("amount")  # Сортуємо за сумою
+        elif sort_by == "date":
+            expenses = expenses.order_by("date")  # Сортуємо за датою
 
     return render(request, "expenses/expense_list.html", {"expenses": expenses})
 
@@ -50,3 +53,11 @@ def delete_expense(request, expense_id):
         return redirect("expense_list")
 
     return render(request, "expenses/delete_expense.html", {"expense": expense})
+
+
+def delete_all_expenses(request):
+    if request.method == "POST":
+        Expense.objects.all().delete()
+        return redirect("expense_list")
+
+    return render(request, "expenses/delete_all_expenses.html")

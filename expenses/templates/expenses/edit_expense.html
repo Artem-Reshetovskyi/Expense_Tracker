@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +9,17 @@
     <title>Edit Expense</title>
 </head>
 <body>
-    <h1>Edit Expense: {{ expense.name }}</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save Changes</button>
-    </form>
-    <a href="{% url 'expense_list' %}">Cancel</a>
+    <div class="container mt-4">
+        <h1 class="mb-3">Edit Expense</h1>
+        <form method="post" class="card p-4 shadow">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                <a href="{% url 'expense_list' %}" class="btn btn-secondary btn-sm">Cancel</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
+{% endblock %}
