@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-23 14:20+0100\n"
+"POT-Creation-Date: 2025-04-01 10:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,18 +20,175 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
-#: .\config\settings.py:111
-msgid "English"
-msgstr ""
-
-#: .\config\settings.py:112
-msgid "Polski"
-msgstr ""
-
-#: .\config\settings.py:113
-msgid "Українська"
-msgstr ""
 
 #: .\config\settings.py:114
+msgid "English"
+msgstr "Англійська"
+
+#: .\config\settings.py:115
+msgid "Polski"
+msgstr "Польська"
+
+#: .\config\settings.py:116
+msgid "Українська"
+msgstr "Українська"
+
+#: .\config\settings.py:117
 msgid "Русский"
-msgstr ""
+msgstr "Російська"
+
+#: .\expenses\models.py:12
+msgid "Expense Name"
+msgstr "Назва витрати"
+
+#: .\expenses\templates\base.html:8 .\expenses\templates\base.html:27
+msgid "Budget Tracker"
+msgstr "Бюджетний трекер"
+
+#: .\expenses\templates\base.html:22
+msgid "Change Language"
+msgstr "Змінити мову"
+
+#: .\expenses\templates\base.html:29
+msgid "Toggle navigation"
+msgstr "Переключити навігацію"
+
+#: .\expenses\templates\base.html:35
+msgid "Expenses"
+msgstr "Витрати"
+
+#: .\expenses\templates\expenses\add_expense.html:10
+#: .\expenses\templates\expenses\add_expense.html:14
+#: .\expenses\templates\expenses\expense_list.html:16
+msgid "Add Expense"
+msgstr "Додати витрату"
+
+#: .\expenses\templates\expenses\add_expense.html:19
+#: .\expenses\templates\expenses\edit_expense.html:19
+msgid "Save"
+msgstr "Зберегти"
+
+#: .\expenses\templates\expenses\add_expense.html:20
+#: .\expenses\templates\expenses\delete_all_expenses.html:11
+#: .\expenses\templates\expenses\delete_expense.html:19
+#: .\expenses\templates\expenses\edit_expense.html:20
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: .\expenses\templates\expenses\delete_all_expenses.html:6
+#: .\expenses\templates\expenses\expense_list.html:74
+msgid "Delete All Expenses"
+msgstr "Видалити всі витрати"
+
+#: .\expenses\templates\expenses\delete_all_expenses.html:7
+#: .\expenses\templates\expenses\delete_expense.html:15
+msgid "Are you sure you want to delete"
+msgstr "Ви впевнені, що хочете видалити"
+
+#: .\expenses\templates\expenses\delete_all_expenses.html:7
+msgid "This action cannot be undone"
+msgstr "Цю дію неможливо скасувати"
+
+#: .\expenses\templates\expenses\delete_all_expenses.html:7
+msgid "all expenses"
+msgstr "всі витрати"
+
+#: .\expenses\templates\expenses\delete_all_expenses.html:10
+msgid "Yes, Delete All"
+msgstr "Так, видалити всі"
+
+#: .\expenses\templates\expenses\delete_expense.html:10
+#: .\expenses\templates\expenses\delete_expense.html:14
+msgid "Delete Expense"
+msgstr "Видалити витрату"
+
+#: .\expenses\templates\expenses\delete_expense.html:18
+msgid "Yes, Delete"
+msgstr "Так, видалити"
+
+#: .\expenses\templates\expenses\edit_expense.html:10
+#: .\expenses\templates\expenses\edit_expense.html:14
+msgid "Edit Expense"
+msgstr "Редагувати витрату"
+
+#: .\expenses\templates\expenses\expense_list.html:11
+msgid "Expense Tracker"
+msgstr "Трекер витрат"
+
+#: .\expenses\templates\expenses\expense_list.html:15
+msgid "Expense List"
+msgstr "Список витрат"
+
+#: .\expenses\templates\expenses\expense_list.html:19
+msgid "Filter by Category"
+msgstr "Фільтрувати за категорією"
+
+#: .\expenses\templates\expenses\expense_list.html:21
+msgid "All Categories"
+msgstr "Всі категорії"
+
+#: .\expenses\templates\expenses\expense_list.html:22
+msgid "Food"
+msgstr "Їжа"
+
+#: .\expenses\templates\expenses\expense_list.html:23
+msgid "Transport"
+msgstr "Транспорт"
+
+#: .\expenses\templates\expenses\expense_list.html:24
+msgid "Entertainment"
+msgstr "Розваги"
+
+#: .\expenses\templates\expenses\expense_list.html:25
+msgid "Bills"
+msgstr "Рахунки"
+
+#: .\expenses\templates\expenses\expense_list.html:26
+msgid "Other"
+msgstr "Інше"
+
+#: .\expenses\templates\expenses\expense_list.html:28
+msgid "Filter"
+msgstr "Фільтрувати"
+
+#: .\expenses\templates\expenses\expense_list.html:30
+msgid "Sort by"
+msgstr "Сортувати за"
+
+#: .\expenses\templates\expenses\expense_list.html:32
+msgid "Select"
+msgstr "Вибрати"
+
+#: .\expenses\templates\expenses\expense_list.html:33
+#: .\expenses\templates\expenses\expense_list.html:46
+msgid "Amount"
+msgstr "Сума"
+
+#: .\expenses\templates\expenses\expense_list.html:34
+#: .\expenses\templates\expenses\expense_list.html:43
+msgid "Date"
+msgstr "Дата"
+
+#: .\expenses\templates\expenses\expense_list.html:36
+msgid "Sort"
+msgstr "Сортувати"
+
+#: .\expenses\templates\expenses\expense_list.html:44
+msgid "Category"
+msgstr "Категорія"
+
+#: .\expenses\templates\expenses\expense_list.html:45
+msgid "Name"
+msgstr "Назва"
+
+#: .\expenses\templates\expenses\expense_list.html:47
+msgid "Actions"
+msgstr "Дії"
+
+#: .\expenses\templates\expenses\expense_list.html:59
+msgid "Edit"
+msgstr "Редагувати"
+
+#: .\expenses\templates\expenses\expense_list.html:62
+msgid "Delete"
+msgstr "Видалити"

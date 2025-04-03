@@ -8,27 +8,184 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-23 14:18+0100\n"
+"POT-Creation-Date: 2025-04-01 10:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language-Team: English <LL@li.org>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\config\settings.py:111
-msgid "English"
-msgstr ""
-
-#: .\config\settings.py:112
-msgid "Polski"
-msgstr ""
-
-#: .\config\settings.py:113
-msgid "Українська"
-msgstr ""
 
 #: .\config\settings.py:114
+msgid "English"
+msgstr "English"
+
+#: .\config\settings.py:115
+msgid "Polski"
+msgstr "Polish"
+
+#: .\config\settings.py:116
+msgid "Українська"
+msgstr "Ukrainian"
+
+#: .\config\settings.py:117
 msgid "Русский"
-msgstr ""
+msgstr "Russian"
+
+#: .\expenses\models.py:12
+msgid "Expense Name"
+msgstr "Expense Name"
+
+#: .\expenses\templates\base.html:8 .\expenses\templates\base.html:27
+msgid "Budget Tracker"
+msgstr "Budget Tracker"
+
+#: .\expenses\templates\base.html:22
+msgid "Change Language"
+msgstr "Change Language"
+
+#: .\expenses\templates\base.html:29
+msgid "Toggle navigation"
+msgstr "Toggle navigation"
+
+#: .\expenses\templates\base.html:35
+msgid "Expenses"
+msgstr "Expenses"
+
+#: .\expenses\templates\expenses\add_expense.html:10
+#: .\expenses\templates\expenses\add_expense.html:14
+#: .\expenses\templates\expenses\expense_list.html:16
+msgid "Add Expense"
+msgstr "Add Expense"
+
+#: .\expenses\templates\expenses\add_expense.html:19
+#: .\expenses\templates\expenses\edit_expense.html:19
+msgid "Save"
+msgstr "Save"
+
+#: .\expenses\templates\expenses\add_expense.html:20
+#: .\expenses\templates\expenses\delete_all_expenses.html:11
+#: .\expenses\templates\expenses\delete_expense.html:19
+#: .\expenses\templates\expenses\edit_expense.html:20
+msgid "Cancel"
+msgstr "Cancel"
+
+#: .\expenses\templates\expenses\delete_all_expenses.html:6
+#: .\expenses\templates\expenses\expense_list.html:74
+msgid "Delete All Expenses"
+msgstr "Delete All Expenses"
+
+#: .\expenses\templates\expenses\delete_all_expenses.html:7
+#: .\expenses\templates\expenses\delete_expense.html:15
+msgid "Are you sure you want to delete"
+msgstr "Are you sure you want to delete"
+
+#: .\expenses\templates\expenses\delete_all_expenses.html:7
+msgid "all expenses"
+msgstr "all expenses"
+
+#: .\expenses\templates\expenses\delete_all_expenses.html:7
+msgid "This action cannot be undone"
+msgstr "This action cannot be undone"
+
+#: .\expenses\templates\expenses\delete_all_expenses.html:10
+msgid "Yes, Delete All"
+msgstr "Yes, Delete All"
+
+#: .\expenses\templates\expenses\delete_expense.html:10
+#: .\expenses\templates\expenses\delete_expense.html:14
+msgid "Delete Expense"
+msgstr "Delete Expense"
+
+#: .\expenses\templates\expenses\delete_expense.html:18
+msgid "Yes, Delete"
+msgstr "Yes, Delete"
+
+#: .\expenses\templates\expenses\edit_expense.html:10
+#: .\expenses\templates\expenses\edit_expense.html:14
+msgid "Edit Expense"
+msgstr "Edit Expense"
+
+#: .\expenses\templates\expenses\expense_list.html:11
+msgid "Expense Tracker"
+msgstr "Expense Tracker"
+
+#: .\expenses\templates\expenses\expense_list.html:15
+msgid "Expense List"
+msgstr "Expense List"
+
+#: .\expenses\templates\expenses\expense_list.html:19
+msgid "Filter by Category"
+msgstr "Filter by Category"
+
+#: .\expenses\templates\expenses\expense_list.html:21
+msgid "All Categories"
+msgstr "All Categories"
+
+#: .\expenses\templates\expenses\expense_list.html:22
+msgid "Food"
+msgstr "Food"
+
+#: .\expenses\templates\expenses\expense_list.html:23
+msgid "Transport"
+msgstr "Transport"
+
+#: .\expenses\templates\expenses\expense_list.html:24
+msgid "Entertainment"
+msgstr "Entertainment"
+
+#: .\expenses\templates\expenses\expense_list.html:25
+msgid "Bills"
+msgstr "Bills"
+
+#: .\expenses\templates\expenses\expense_list.html:26
+msgid "Other"
+msgstr "Other"
+
+#: .\expenses\templates\expenses\expense_list.html:28
+msgid "Filter"
+msgstr "Filter"
+
+#: .\expenses\templates\expenses\expense_list.html:30
+msgid "Sort by"
+msgstr "Sort by"
+
+#: .\expenses\templates\expenses\expense_list.html:32
+msgid "Select"
+msgstr "Select"
+
+#: .\expenses\templates\expenses\expense_list.html:33
+#: .\expenses\templates\expenses\expense_list.html:46
+msgid "Amount"
+msgstr "Amount"
+
+#: .\expenses\templates\expenses\expense_list.html:34
+#: .\expenses\templates\expenses\expense_list.html:43
+msgid "Date"
+msgstr "Date"
+
+#: .\expenses\templates\expenses\expense_list.html:36
+msgid "Sort"
+msgstr "Sort"
+
+#: .\expenses\templates\expenses\expense_list.html:44
+msgid "Category"
+msgstr "Category"
+
+#: .\expenses\templates\expenses\expense_list.html:45
+msgid "Name"
+msgstr "Name"
+
+#: .\expenses\templates\expenses\expense_list.html:47
+msgid "Actions"
+msgstr "Actions"
+
+#: .\expenses\templates\expenses\expense_list.html:59
+msgid "Edit"
+msgstr "Edit"
+
+#: .\expenses\templates\expenses\expense_list.html:62
+msgid "Delete"
+msgstr "Delete"

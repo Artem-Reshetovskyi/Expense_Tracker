@@ -49,7 +49,7 @@ def edit_expense(request, expense_id):
 def delete_expense(request, expense_id):
     expense = get_object_or_404(Expense, id=expense_id)
     if request.method == "POST":
-        expense.delete()  # Видаляємо витрату
+        expense.delete()
         return redirect("expense_list")
 
     return render(request, "expenses/delete_expense.html", {"expense": expense})

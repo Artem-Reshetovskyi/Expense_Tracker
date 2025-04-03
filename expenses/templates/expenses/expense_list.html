@@ -1,78 +1,69 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
+
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<h1>{% trans "Expense List" %}</h1>
+<a href="{% url 'add_expense' %}"><button>{% trans "Add Expense" %}</button></a>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <h1>Expense List</h1>
-    <a href="{% url 'add_expense' %}"><button>Add Expense</button></a>
-    
 <form method="get" action="{% url 'expense_list' %}">
-        <label for="category">Filter by Category:</label>
-        <select name="category" id="category">
-            <option value="">All Categories</option>
-            <option value="food">Food</option>
-            <option value="transport">Transport</option>
-            <option value="entertainment">Entertainment</option>
-            <option value="bills">Bills</option>
-            <option value="other">Other</option>
-        </select>
-        <button type="submit">Filter</button>
-        <label for="sort_by">Sort by:</label>
-        <select name="sort_by" id="sort_by">
-            <option value="">Select</option>
-            <option value="amount">Amount</option>
-            <option value="date">Date</option>
-        </select>
-        <button type="submit">Sort</button>
-    </form>
+    <label for="category">{% trans "Filter by Category" %}:</label>
+    <select name="category" id="category">
+        <option value="">{% trans "All Categories" %}</option>
+        <option value="food">{% trans "Food" %}</option>
+        <option value="transport">{% trans "Transport" %}</option>
+        <option value="entertainment">{% trans "Entertainment" %}</option>
+        <option value="bills">{% trans "Bills" %}</option>
+        <option value="other">{% trans "Other" %}</option>
+    </select>
+    <button type="submit">{% trans "Filter" %}</button>
 
-    <div class="table-responsive mt-3">
-        <table class="table table-striped table-hover">
-            <thead class="table-dark">
+    <label for="sort_by">{% trans "Sort by" %}:</label>
+    <select name="sort_by" id="sort_by">
+        <option value="">{% trans "Select" %}</option>
+        <option value="amount">{% trans "Amount" %}</option>
+        <option value="date">{% trans "Date" %}</option>
+    </select>
+    <button type="submit">{% trans "Sort" %}</button>
+</form>
+
+<div class="table-responsive mt-3">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>{% trans "Date" %}</th>
+                <th>{% trans "Category" %}</th>
+                <th>{% trans "Name" %}</th>
+                <th>{% trans "Amount" %}</th>
+                <th>{% trans "Actions" %}</th>              
+            </tr>
+        </thead>
+        <tbody>
+            {% for expense in expenses %}
                 <tr>
-                    <th>Date</th>
-                    <th>Category</th>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Actions</th>              
+                    <td>{{ expense.date }}</td>
+                    <td>{{ expense.get_category_display }}</td>
+                    <td>{{ expense.name }}</td>
+                    <td>{{ expense.amount }}</td>
+                    <td>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <a href="{% url 'edit_expense' expense.id %}" class="btn btn-primary btn-sm">✏️ {% trans "Edit" %}</a>
+                            <form action="{% url 'delete_expense' expense.id %}" style="margin: 0;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">🗑 {% trans "Delete" %}</button>
+                            </form>
+                        </div>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                {% for expense in expenses %}
-                    <tr>
-                        <td>{{ expense.date }}</td>
-                        <td>{{ expense.get_category_display }}</td>
-                        <td>{{ expense.name }}</td>
-                        <td>{{ expense.amount }}</td>
-                        <td>
-                            <div style="display: flex; gap: 10px; align-items: center;">
-                                <a href="{% url 'edit_expense' expense.id %}" class="btn btn-primary btn-sm">✏️ Edit</a>
-                                <form action="{% url 'delete_expense' expense.id %}" method="post" style="margin: 0;">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn btn-danger btn-sm">🗑 Delete</button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>    
+            {% endfor %}
+        </tbody>
+    </table>
+</div>    
 
-    <div class="d-flex justify-content-end mb-3">
-        <a href="{% url 'delete_all_expenses' %}" class="btn btn-warning">
-            ⚠️ Delete All Expenses
-        </a>
-    </div>
-</body>
-</html>
-
+<div class="d-flex justify-content-end mb-3">
+    <a href="{% url 'delete_all_expenses' %}" class="btn btn-warning">
+        ⚠️ {% trans "Delete All Expenses" %}
+    </a>
+</div>
 {% endblock %}

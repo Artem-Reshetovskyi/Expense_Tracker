@@ -1,25 +1,16 @@
 {% extends 'base.html' %}
-{% block content %}
+{% load i18n %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Expense</title>
-</head>
-<body>
-    <div class="container mt-4">
-        <h1 class="mb-3">Add Expense</h1>
-        <form method="post" class="card p-4 shadow">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <div class="d-flex justify-content-between">
-                <button type="submit" class="btn btn-primary btn-sm">Save</button>
-                <a href="{% url 'expense_list' %}" class="btn btn-secondary btn-sm">Cancel</a>
-            </div>
-        </form>
-    </div>
-</body>
-</html>
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-3">{% trans "Add Expense" %}</h1>
+    <form method="post" class="card p-4 shadow">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary btn-sm">{% trans "Save" %}</button>
+            <a href="{% url 'expense_list' %}" class="btn btn-secondary btn-sm">{% trans "Cancel" %}</a>
+        </div>
+    </form>
+</div>
 {% endblock %}
