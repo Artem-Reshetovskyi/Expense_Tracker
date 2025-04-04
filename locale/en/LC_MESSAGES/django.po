@@ -24,15 +24,15 @@ msgstr "English"
 
 #: .\config\settings.py:115
 msgid "Polski"
-msgstr "Polish"
+msgstr "Polski"
 
 #: .\config\settings.py:116
 msgid "Українська"
-msgstr "Ukrainian"
+msgstr "Українська"
 
 #: .\config\settings.py:117
 msgid "Русский"
-msgstr "Russian"
+msgstr "Русский"
 
 #: .\expenses\models.py:12
 msgid "Expense Name"

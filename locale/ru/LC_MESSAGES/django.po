@@ -22,15 +22,15 @@ msgstr ""
 
 #: .\config\settings.py:114
 msgid "English"
-msgstr "Английский"
+msgstr "English"
 
 #: .\config\settings.py:115
 msgid "Polski"
-msgstr "Польский"
+msgstr "Polski"
 
 #: .\config\settings.py:116
 msgid "Українська"
-msgstr "Украинский"
+msgstr "Українська"
 
 #: .\config\settings.py:117
 msgid "Русский"
