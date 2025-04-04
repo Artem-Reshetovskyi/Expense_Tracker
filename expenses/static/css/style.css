@@ -35,3 +35,29 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+.language-form {
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.language-form select {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.language-form button {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.language-form button:hover {
+    background-color: #0056b3;
+}
