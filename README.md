@@ -2,7 +2,7 @@
 
 ## Opis projektu
 
-Budżetowy Traker to aplikacja do zarządzania wydatkami, która umożliwia użytkownikom dodawanie, przeglądanie i analizowanie swoich transakcji finansowych. Projekt oparty jest na Flask/Django oraz SQL z wykorzystaniem ORM.
+Budżetowy Traker to aplikacja do zarządzania wydatkami, która umożliwia użytkownikom dodawanie, przeglądanie i analizowanie swoich transakcji finansowych. Projekt oparty jest na Django oraz SQL z wykorzystaniem ORM.
 
 ## Funkcjonalności
 
@@ -24,9 +24,9 @@ Budżetowy Traker to aplikacja do zarządzania wydatkami, która umożliwia uży
 
 ## Technologie
 
-- **Backend:** Flask/Django
-- **Baza danych:** SQLite/PostgreSQL + ORM (SQLAlchemy/Django ORM)
-- **Frontend:** HTML + Bootstrap (lub wbudowane szablony Flask/Django)
+- **Backend:** Django
+- **Baza danych:** SQLite + Django ORM
+- **Frontend:** HTML + Bootstrap (lub wbudowane szablony Django)
 - **Dodatkowe:** PyInstaller (opcjonalnie dla wersji desktopowej)
 
 ## Struktura projektu
