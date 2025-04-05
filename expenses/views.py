@@ -2,22 +2,32 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Expense
 from .forms import ExpenseForm
 from django.db.models import Q
+from datetime import datetime
 
 
 def expense_list(request):
+    expenses = Expense.objects.all()  # За замовчуванням беремо всі витрати
     category = request.GET.get("category")  # Отримуємо категорію з параметрів URL
     sort_by = request.GET.get("sort_by")  # Отримуємо параметр для сортування
-    expenses = Expense.objects.all()  # За замовчуванням беремо всі витрати
 
+    # Фільтруємо за категорією
     if category:
-        expenses = expenses.filter(
-            category=category
-        )  # Фільтруємо за категорією, якщо вона передана
-    if sort_by:
-        if sort_by == "amount":
-            expenses = expenses.order_by("amount")  # Сортуємо за сумою
-        elif sort_by == "date":
-            expenses = expenses.order_by("date")  # Сортуємо за датою
+        expenses = expenses.filter(category=category)
+
+    # Фільтруємо за датою
+    date_from = request.GET.get("date_from", "")
+    date_to = request.GET.get("date_to", "")
+    if date_from:
+        expenses = expenses.filter(date__gte=datetime.strptime(date_from, "%Y-%m-%d"))
+    if date_to:
+        expenses = expenses.filter(date__lte=datetime.strptime(date_to, "%Y-%m-%d"))
+
+    # Сортування
+    sort_by = request.GET.get("sort_by", "")
+    if sort_by == "amount":
+        expenses = expenses.order_by("amount")
+    elif sort_by == "date":
+        expenses = expenses.order_by("date")
 
     return render(request, "expenses/expense_list.html", {"expenses": expenses})
 
