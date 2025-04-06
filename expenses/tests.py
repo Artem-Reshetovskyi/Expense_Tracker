@@ -76,3 +76,17 @@ class ExpenseViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "expenses/expense_list.html")
         self.assertContains(response, "testowy wydatek")
+        
+        
+    def test_add_expense_view(self):
+        """
+        Test widoku dodawania wydatku, testuje odpowieź serwera i czy dodaje nowy wydatek.
+        """
+        response = self.client.post(reverse("add_expense"), {
+            "name": "Mega rollo miesiany miesiany bardzo ostry dla pan doktor",
+            "amount": 45.00,
+            "category": "food",
+            "date": "2025-04-02"
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Expense.objects.count(), 2)
