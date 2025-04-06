@@ -1,8 +1,8 @@
-from django.test import TestCase
-from .models import Expense
+from django.test import TestCase, Client
+from .models import Expense 
 from datetime import date
 from .forms import ExpenseForm
-
+from django.urls import reverse
 
 class ExpenseModelTest(TestCase):
     """
@@ -49,4 +49,30 @@ class ExpenseFormTest(TestCase):
             "date": "",
         }
         form = ExpenseForm(data=form_data)
-        self.assertTrue(form.is_valid())
+        self.assertFalse(form.is_valid())
+        
+        
+class ExpenseViewTest(TestCase):
+    """
+    testy dla widoków Expense.
+    """
+    def setUp(self):
+        """
+        Stworzenie klienta testowego i wydatku
+        """
+        self.client = Client()
+        self.expense = Expense.objects.create(
+            name="testowy wydatek",
+            amount=99.99,
+            category="utilities",
+            date=date(2024, 4, 1)
+        )
+
+    def test_expense_list_view(self):
+        """
+        Test widoku listy wydatków, testuje odpowieź serwera, sprawdza którą template używa i czy zawiera testowy wydatek.
+        """
+        response = self.client.get(reverse("expense_list"))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "expenses/expense_list.html")
+        self.assertContains(response, "testowy wydatek")
