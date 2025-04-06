@@ -20,14 +20,33 @@ class ExpenseModelTest(TestCase):
 
 class ExpenseFormTest(TestCase):
     """
-    Test walidacji dla formularza ExpenseForm.
+    Testy dla ExpenseForm.
     """
+
     def test_valid_form(self):
+        """
+        Test walidacji dla formularza ExpenseForm.
+        """
+    
         form_data = {
             "name": "Bilet na tramwaj",
             "amount": 3.50,
             "category": "transport",
             "date": "2025-06-04",
+        }
+        form = ExpenseForm(data=form_data)
+        self.assertTrue(form.is_valid())
+        
+        
+    def test_invalid_form(self):
+        """
+        Test sprawdzający wychwytywanie błędnych danych w formularzu ExpenseForm.
+        """
+        form_data = {
+            "name": "",
+            "amount": "",
+            "category": "",
+            "date": "",
         }
         form = ExpenseForm(data=form_data)
         self.assertTrue(form.is_valid())
