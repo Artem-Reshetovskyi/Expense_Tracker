@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
 from django.urls import path, include
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n")),
     #path("set_language/", i18n_patterns, name="set_language"),
     path("expenses/", include("expenses.urls")),  # Додаємо наші URL
+    path('', RedirectView.as_view(url='/expenses/', permanent=False)), # redirect ze strony głównej do expenses
 ]
