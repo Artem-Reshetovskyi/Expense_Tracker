@@ -35,6 +35,15 @@
                             🌍 {% trans "Change Language" %}
                         </button>
                     </form>
+
+                    {% if user.is_authenticated %}
+                        <span class="text-white me-2">{% trans "Logged in as" %} {{ user.username }}</span>
+                        <a href="{% url 'logout' %}" class="btn btn-sm btn-outline-light me-2">{% trans "Logout" %}</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-sm btn-outline-light me-2">{% trans "Login" %}</a>
+                        <a href="{% url 'register' %}" class="btn btn-sm btn-outline-light">{% trans "Register" %}</a>
+                    {% endif %}
+
                 </div>
             </div>
         </div>   

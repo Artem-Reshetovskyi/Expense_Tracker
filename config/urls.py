@@ -21,6 +21,7 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("accounts/", include("accounts.urls")),  # Додаємо URL для облікових записів
     path("i18n/", include("django.conf.urls.i18n")),
     #path("set_language/", i18n_patterns, name="set_language"),
     path("expenses/", include("expenses.urls")),  # Додаємо наші URL
