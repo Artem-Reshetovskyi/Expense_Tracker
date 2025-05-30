@@ -3,8 +3,11 @@ from .models import Expense
 from .forms import ExpenseForm
 from django.db.models import Q
 from datetime import datetime
+from django.contrib.auth.decorators import login_required # Декоратор для захисту від неавторизованого доступу  
 
 
+# Відображення списку витрат з можливістю фільтрації та сортування
+@login_required 
 def expense_list(request):
     expenses = Expense.objects.all()  # За замовчуванням беремо всі витрати
     category = request.GET.get("category")  # Отримуємо категорію з параметрів URL
@@ -32,6 +35,7 @@ def expense_list(request):
     return render(request, "expenses/expense_list.html", {"expenses": expenses})
 
 
+@login_required  # Додаємо захист для функції додавання витрат
 def add_expense(request):
     if request.method == "POST":
         form = ExpenseForm(request.POST)
@@ -44,6 +48,7 @@ def add_expense(request):
     return render(request, "expenses/add_expense.html", {"form": form})
 
 
+@login_required  # Додаємо захист для функції редагування витрат
 def edit_expense(request, expense_id):
     expense = get_object_or_404(Expense, id=expense_id)  # Отримуємо витрату або повертаємо 404
     if request.method == "POST":
@@ -56,6 +61,7 @@ def edit_expense(request, expense_id):
     return render(request, "expenses/edit_expense.html", {"form": form, "expense": expense})
 
 
+@login_required  # Додаємо захист для функції видалення витрат
 def delete_expense(request, expense_id):
     expense = get_object_or_404(Expense, id=expense_id)
     if request.method == "POST":
@@ -65,6 +71,7 @@ def delete_expense(request, expense_id):
     return render(request, "expenses/delete_expense.html", {"expense": expense})
 
 
+@login_required  # Додаємо захист для функції видалення всіх витрат
 def delete_all_expenses(request):
     if request.method == "POST":
         Expense.objects.all().delete()
