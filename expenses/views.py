@@ -122,3 +122,10 @@ def income_delete(request, pk):
         income.delete()
         return redirect("income_list")
     return render(request, "incomes/income_confirm_delete.html", {"income": income})
+
+@login_required
+def delete_all_incomes(request):
+    if request.method == "POST":
+        Income.objects.all().delete()
+        return redirect("income_list")
+    return render(request, "incomes/delete_all_incomes.html")

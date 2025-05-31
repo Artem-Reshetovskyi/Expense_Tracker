@@ -1,21 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load i18n %}
 
 {% block content %}
-<h2>{% trans "Your Incomes" %}</h2>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<h1>{% trans "Your Incomes" %}</h1>
 <a class="btn btn-success mb-2" href="{% url 'income_create' %}">{% trans "Add Income" %}</a>
 
-<ul class="list-group">
-    {% for income in incomes %}
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-            {{ income.date }} — {{ income.amount }} — {{ income.get_description_display }}
-            <span>
-                <a class="btn btn-sm btn-primary" href="{% url 'income_edit' income.pk %}">{% trans "Edit" %}</a>
-                <a class="btn btn-sm btn-danger" href="{% url 'income_delete' income.pk %}">{% trans "Delete" %}</a>
-            </span>
-        </li>
-    {% empty %}
-        <li class="list-group-item">{% trans "No incomes yet." %}</li>
-    {% endfor %}
-</ul>
+<div class="table-responsive mt-3">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th style="width: 1%; white-space: nowrap;">{% trans "Date" %}</th>
+                <th>{% trans "Amount" %}</th>
+                <th>{% trans "Description" %}</th>
+                <th style="width: 1%; white-space: nowrap;">{% trans "Actions" %}</th>
+            </tr>
+        </thead>
+        <tbody>    
+            {% for income in incomes %}
+                <tr>
+                    <td style="text-align: right; white-space: nowrap;">{{ income.date }}</td>
+                    <td>{{ income.amount }}</td>
+                    <td>{{ income.get_description_display }}</td>
+                    <td style="text-align: right; white-space: nowrap;">
+                        <span>
+                            <a class="btn btn-sm btn-primary" href="{% url 'income_edit' income.pk %}">{% trans "Edit" %}</a>
+                            <a class="btn btn-sm btn-danger" href="{% url 'income_delete' income.pk %}">{% trans "Delete" %}</a>
+                        </span>
+                    </td>
+                </tr>
+            {% empty %}
+                <li class="list-group-item">{% trans "No incomes yet." %}</li>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Кнопка для видалення всіх доходів --> 
+<div class="d-flex justify-content-end mb-3">
+    <a href="{% url 'delete_all_incomes' %}" class="btn btn-warning">
+        ⚠️ {% trans "Delete All Incomes" %}
+    </a>
+</div>
 {% endblock %}
