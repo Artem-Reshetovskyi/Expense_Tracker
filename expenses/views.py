@@ -42,8 +42,10 @@ def add_expense(request):
     if request.method == "POST":
         form = ExpenseForm(request.POST)
         if form.is_valid():
-            form.save()  # Зберігаємо нову витрату в базу даних
-            return redirect("expense_list")  # Повертаємося на список витрат
+            expense = form.save(commit=False)  # Створюємо об'єкт витрати, але не зберігаємо його ще
+            expense.user = request.user  # Прив'язуємо витрату до поточного користувача
+            expense.save()  # Зберігаємо витрату в базі даних
+            return redirect("expense_list")  
     else:
         form = ExpenseForm()
 

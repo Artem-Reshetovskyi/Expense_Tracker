@@ -17,11 +17,17 @@ class ExpenseForm(forms.ModelForm):
             "date": forms.DateInput(attrs={"type": "date"})  # Поле для вибору дати
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["category"].choices = [("", _("Chooce..."))] + list(
+            self.fields["category"].choices
+        )
+
 
 class IncomeForm(forms.ModelForm):
     class Meta:
         model = Income
-        fields = ["amount", "description", "date"]
+        fields = ["amount", "description", "date",]
         labels = {
             "amount": _("Amount"),
             "description": _("Description"),
@@ -30,3 +36,9 @@ class IncomeForm(forms.ModelForm):
         widgets = {
             "date": forms.DateInput(attrs={"type": "date"}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["description"].choices = [("", _("Chooce..."))] + list(
+            self.fields["description"].choices
+        )

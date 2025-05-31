@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 21:56+0200\n"
+"POT-Creation-Date: 2025-06-01 00:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English <LL@li.org>\n"
@@ -34,18 +34,23 @@ msgstr "Українська"
 msgid "Русский"
 msgstr "Русский"
 
-#: .\expenses\forms.py:26 .\expenses\models.py:14
+#: .\expenses\forms.py:22 .\expenses\forms.py:42
+msgid "Chooce..."
+msgstr ""
+
+#: .\expenses\forms.py:32 .\expenses\models.py:14
 #: .\expenses\templates\expenses\expense_list.html:39
 #: .\expenses\templates\expenses\expense_list.html:59
-#: .\expenses\templates\incomes\income_list.html:15
+#: .\expenses\templates\incomes\income_list.html:16
 msgid "Amount"
 msgstr "Amount"
 
-#: .\expenses\forms.py:27 .\expenses\templates\incomes\income_list.html:16
+#: .\expenses\forms.py:33 .\expenses\models.py:38
+#: .\expenses\templates\incomes\income_list.html:15
 msgid "Description"
 msgstr "Description"
 
-#: .\expenses\forms.py:28 .\expenses\models.py:16
+#: .\expenses\forms.py:34 .\expenses\models.py:16
 #: .\expenses\templates\expenses\expense_list.html:40
 #: .\expenses\templates\expenses\expense_list.html:56
 #: .\expenses\templates\incomes\income_list.html:14
@@ -68,7 +73,7 @@ msgstr "Entertainment"
 msgid "Utilities"
 msgstr "Utilities"
 
-#: .\expenses\models.py:11 .\expenses\models.py:29
+#: .\expenses\models.py:11 .\expenses\models.py:34
 #: .\expenses\templates\expenses\expense_list.html:22
 msgid "Other"
 msgstr "Other"
@@ -81,31 +86,41 @@ msgstr "Expense Name"
 msgid "Category"
 msgstr "Category"
 
-#: .\expenses\models.py:24
+#: .\expenses\models.py:19
+#, fuzzy
+#| msgid "Expenses"
+msgid "Expense"
+msgstr "Expenses"
+
+#: .\expenses\models.py:20 .\expenses\templates\base.html:26
+msgid "Expenses"
+msgstr "Expenses"
+
+#: .\expenses\models.py:29
 msgid "Salary"
 msgstr "Salary"
 
-#: .\expenses\models.py:25
+#: .\expenses\models.py:30
 msgid "Bonus"
 msgstr "Bonus"
 
-#: .\expenses\models.py:26
+#: .\expenses\models.py:31
 msgid "Investment"
 msgstr "Investment"
 
-#: .\expenses\models.py:27
+#: .\expenses\models.py:32
 msgid "Rent"
 msgstr "Rent"
 
-#: .\expenses\models.py:28
+#: .\expenses\models.py:33
 msgid "Sale"
 msgstr "Sale"
 
-#: .\expenses\models.py:36 .\expenses\templates\base.html:29
+#: .\expenses\models.py:42 .\expenses\templates\base.html:29
 msgid "Income"
 msgstr "Income"
 
-#: .\expenses\models.py:37
+#: .\expenses\models.py:43
 msgid "Incomes"
 msgstr "Incomes"
 
@@ -135,10 +150,6 @@ msgstr "Budget Tracker"
 #: .\expenses\templates\base.html:20
 msgid "Toggle navigation"
 msgstr "Toggle navigation"
-
-#: .\expenses\templates\base.html:26
-msgid "Expenses"
-msgstr "Expenses"
 
 #: .\expenses\templates\base.html:46
 msgid "Logged in as"
@@ -229,14 +240,12 @@ msgstr "Filter"
 #: .\expenses\templates\expenses\expense_list.html:29
 #, fuzzy
 #| msgid "Date"
-msgid "From Date"
+msgid "From date"
 msgstr "Date"
 
 #: .\expenses\templates\expenses\expense_list.html:32
-#, fuzzy
-#| msgid "Date"
-msgid "To Date"
-msgstr "Date"
+msgid "To date"
+msgstr ""
 
 #: .\expenses\templates\expenses\expense_list.html:36
 msgid "Sort by"
@@ -319,6 +328,16 @@ msgstr ""
 #: .\expenses\templates\incomes\income_list.html:34
 msgid "No incomes yet."
 msgstr ""
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgid "Select description"
+#~ msgstr "Description"
+
+#, fuzzy
+#~| msgid "Date"
+#~ msgid "To Date"
+#~ msgstr "Date"
 
 #~ msgid "Change Language"
 #~ msgstr "Change Language"

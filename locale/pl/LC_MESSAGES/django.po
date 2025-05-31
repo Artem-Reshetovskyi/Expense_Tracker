@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 21:56+0200\n"
+"POT-Creation-Date: 2025-06-01 00:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Polish <LL@li.org>\n"
@@ -36,18 +36,23 @@ msgstr "Українська"
 msgid "Русский"
 msgstr "Русский"
 
-#: .\expenses\forms.py:26 .\expenses\models.py:14
+#: .\expenses\forms.py:22 .\expenses\forms.py:42
+msgid "Chooce..."
+msgstr "Wybór..."
+
+#: .\expenses\forms.py:32 .\expenses\models.py:14
 #: .\expenses\templates\expenses\expense_list.html:39
 #: .\expenses\templates\expenses\expense_list.html:59
-#: .\expenses\templates\incomes\income_list.html:15
+#: .\expenses\templates\incomes\income_list.html:16
 msgid "Amount"
 msgstr "Kwota"
 
-#: .\expenses\forms.py:27 .\expenses\templates\incomes\income_list.html:16
+#: .\expenses\forms.py:33 .\expenses\models.py:38
+#: .\expenses\templates\incomes\income_list.html:15
 msgid "Description"
 msgstr "Opis"
 
-#: .\expenses\forms.py:28 .\expenses\models.py:16
+#: .\expenses\forms.py:34 .\expenses\models.py:16
 #: .\expenses\templates\expenses\expense_list.html:40
 #: .\expenses\templates\expenses\expense_list.html:56
 #: .\expenses\templates\incomes\income_list.html:14
@@ -70,7 +75,7 @@ msgstr "Rozrywka"
 msgid "Utilities"
 msgstr "Media"
 
-#: .\expenses\models.py:11 .\expenses\models.py:29
+#: .\expenses\models.py:11 .\expenses\models.py:34
 #: .\expenses\templates\expenses\expense_list.html:22
 msgid "Other"
 msgstr "Inne"
@@ -83,31 +88,39 @@ msgstr "Nazwa wydatku"
 msgid "Category"
 msgstr "Kategoria"
 
-#: .\expenses\models.py:24
+#: .\expenses\models.py:19
+msgid "Expense"
+msgstr "Wydatki"
+
+#: .\expenses\models.py:20 .\expenses\templates\base.html:26
+msgid "Expenses"
+msgstr "Wydatki"
+
+#: .\expenses\models.py:29
 msgid "Salary"
 msgstr "Wynagrodzenie"
 
-#: .\expenses\models.py:25
+#: .\expenses\models.py:30
 msgid "Bonus"
 msgstr "Premia"
 
-#: .\expenses\models.py:26
+#: .\expenses\models.py:31
 msgid "Investment"
 msgstr "Inwestycja"
 
-#: .\expenses\models.py:27
+#: .\expenses\models.py:32
 msgid "Rent"
 msgstr "Wynajem"
 
-#: .\expenses\models.py:28
+#: .\expenses\models.py:33
 msgid "Sale"
 msgstr "Sprzedaż"
 
-#: .\expenses\models.py:36 .\expenses\templates\base.html:29
+#: .\expenses\models.py:42 .\expenses\templates\base.html:29
 msgid "Income"
 msgstr "Dochód"
 
-#: .\expenses\models.py:37
+#: .\expenses\models.py:43
 msgid "Incomes"
 msgstr "Dochody"
 
@@ -137,10 +150,6 @@ msgstr "Śledzenie budżetu"
 #: .\expenses\templates\base.html:20
 msgid "Toggle navigation"
 msgstr "Przełącz nawigację"
-
-#: .\expenses\templates\base.html:26
-msgid "Expenses"
-msgstr "Wydatki"
 
 #: .\expenses\templates\base.html:46
 msgid "Logged in as"
@@ -234,7 +243,7 @@ msgstr "Od daty"
 
 #: .\expenses\templates\expenses\expense_list.html:32
 msgid "To date"
-msgstr "Do tej pory"
+msgstr "Do daty"
 
 #: .\expenses\templates\expenses\expense_list.html:36
 msgid "Sort by"
@@ -271,26 +280,22 @@ msgstr "Edytuj"
 msgid "Delete"
 msgstr "Usuń"
 
-#: .\expenses\templates\incomes\income_list.html:43
 #: .\expenses\templates\incomes\delete_all_incomes.html:6
+#: .\expenses\templates\incomes\income_list.html:43
 msgid "Delete All Incomes"
 msgstr "Usuń wszystkie przychody"
-
 
 #: .\expenses\templates\incomes\delete_all_incomes.html:7
 msgid "all incomes"
 msgstr "Wszystkie dochody"
 
-
 #: .\expenses\templates\incomes\income_confirm_delete.html:5
 msgid "Delete Income"
 msgstr "Usuń przychód"
 
-
 #: .\expenses\templates\incomes\income_confirm_delete.html:6
 msgid "Are you sure you want to delete this income?"
 msgstr "Czy na pewno chcesz usunąć ten przychód?"
-
 
 #: .\expenses\templates\incomes\income_confirm_delete.html:9
 msgid "Yes, delete"
@@ -311,6 +316,11 @@ msgstr "Dodaj dochód"
 #: .\expenses\templates\incomes\income_list.html:34
 msgid "No incomes yet."
 msgstr "Nie ma jeszcze dochodów"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgid "Select description"
+#~ msgstr "Opis"
 
 #~ msgid "Change Language"
 #~ msgstr "Zmień język"

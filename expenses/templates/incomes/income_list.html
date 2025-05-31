@@ -12,8 +12,8 @@
         <thead class="table-dark">
             <tr>
                 <th style="width: 1%; white-space: nowrap;">{% trans "Date" %}</th>
-                <th>{% trans "Amount" %}</th>
                 <th>{% trans "Description" %}</th>
+                <th>{% trans "Amount" %}</th>
                 <th style="width: 1%; white-space: nowrap;">{% trans "Actions" %}</th>
             </tr>
         </thead>
@@ -21,12 +21,12 @@
             {% for income in incomes %}
                 <tr>
                     <td style="text-align: right; white-space: nowrap;">{{ income.date }}</td>
-                    <td>{{ income.amount }}</td>
                     <td>{{ income.get_description_display }}</td>
+                    <td>{{ income.amount }}</td>
                     <td style="text-align: right; white-space: nowrap;">
                         <span>
-                            <a class="btn btn-sm btn-primary" href="{% url 'income_edit' income.pk %}">{% trans "Edit" %}</a>
-                            <a class="btn btn-sm btn-danger" href="{% url 'income_delete' income.pk %}">{% trans "Delete" %}</a>
+                            <a class="btn btn-sm btn-primary" href="{% url 'income_edit' income.pk %}">✏️ {% trans "Edit" %}</a>
+                            <a class="btn btn-sm btn-danger" href="{% url 'income_delete' income.pk %}">🗑 {% trans "Delete" %}</a>
                         </span>
                     </td>
                 </tr>

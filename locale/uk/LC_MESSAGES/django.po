@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 21:56+0200\n"
+"POT-Creation-Date: 2025-06-01 00:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,7 +15,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14) ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14) ? 2 : 3);\n"
 
 #: .\config\settings.py:114
 msgid "English"
@@ -33,18 +35,23 @@ msgstr "Українська"
 msgid "Русский"
 msgstr "Русский"
 
-#: .\expenses\forms.py:26 .\expenses\models.py:14
+#: .\expenses\forms.py:22 .\expenses\forms.py:42
+msgid "Chooce..."
+msgstr "Виберіть..."
+
+#: .\expenses\forms.py:32 .\expenses\models.py:14
 #: .\expenses\templates\expenses\expense_list.html:39
 #: .\expenses\templates\expenses\expense_list.html:59
-#: .\expenses\templates\incomes\income_list.html:15
+#: .\expenses\templates\incomes\income_list.html:16
 msgid "Amount"
 msgstr "Сума"
 
-#: .\expenses\forms.py:27 .\expenses\templates\incomes\income_list.html:16
+#: .\expenses\forms.py:33 .\expenses\models.py:38
+#: .\expenses\templates\incomes\income_list.html:15
 msgid "Description"
 msgstr "Опис"
 
-#: .\expenses\forms.py:28 .\expenses\models.py:16
+#: .\expenses\forms.py:34 .\expenses\models.py:16
 #: .\expenses\templates\expenses\expense_list.html:40
 #: .\expenses\templates\expenses\expense_list.html:56
 #: .\expenses\templates\incomes\income_list.html:14
@@ -67,7 +74,7 @@ msgstr "Розваги"
 msgid "Utilities"
 msgstr "Комунальні послуги"
 
-#: .\expenses\models.py:11 .\expenses\models.py:29
+#: .\expenses\models.py:11 .\expenses\models.py:34
 #: .\expenses\templates\expenses\expense_list.html:22
 msgid "Other"
 msgstr "Інше"
@@ -80,31 +87,39 @@ msgstr "Назва витрати"
 msgid "Category"
 msgstr "Категорія"
 
-#: .\expenses\models.py:24
+#: .\expenses\models.py:19
+msgid "Expense"
+msgstr "Витрати"
+
+#: .\expenses\models.py:20 .\expenses\templates\base.html:26
+msgid "Expenses"
+msgstr "Витрати"
+
+#: .\expenses\models.py:29
 msgid "Salary"
 msgstr "Зарплата"
 
-#: .\expenses\models.py:25
+#: .\expenses\models.py:30
 msgid "Bonus"
 msgstr "Премія"
 
-#: .\expenses\models.py:26
+#: .\expenses\models.py:31
 msgid "Investment"
 msgstr "Інвестиції"
 
-#: .\expenses\models.py:27
+#: .\expenses\models.py:32
 msgid "Rent"
 msgstr "Оренда"
 
-#: .\expenses\models.py:28
+#: .\expenses\models.py:33
 msgid "Sale"
 msgstr "Продаж"
 
-#: .\expenses\models.py:36 .\expenses\templates\base.html:29
+#: .\expenses\models.py:42 .\expenses\templates\base.html:29
 msgid "Income"
 msgstr "Дохід"
 
-#: .\expenses\models.py:37
+#: .\expenses\models.py:43
 msgid "Incomes"
 msgstr "Доходи"
 
@@ -134,10 +149,6 @@ msgstr "Бюджетний трекер"
 #: .\expenses\templates\base.html:20
 msgid "Toggle navigation"
 msgstr "Переключити навігацію"
-
-#: .\expenses\templates\base.html:26
-msgid "Expenses"
-msgstr "Витрати"
 
 #: .\expenses\templates\base.html:46
 msgid "Logged in as"
@@ -304,6 +315,11 @@ msgstr "Додати дохід"
 #: .\expenses\templates\incomes\income_list.html:34
 msgid "No incomes yet."
 msgstr "Доходів ще немає"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgid "Select description"
+#~ msgstr "Опис"
 
 #~ msgid "Expense Tracker"
 #~ msgstr "Трекер витрат"
