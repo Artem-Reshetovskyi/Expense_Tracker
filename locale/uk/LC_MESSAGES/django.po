@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 19:38+0200\n"
+"POT-Creation-Date: 2025-05-31 21:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,10 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
-"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
-"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
-"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14) ? 2 : 3);\n"
 
 #: .\config\settings.py:114
 msgid "English"
@@ -40,18 +36,18 @@ msgstr "Русский"
 #: .\expenses\forms.py:26 .\expenses\models.py:14
 #: .\expenses\templates\expenses\expense_list.html:39
 #: .\expenses\templates\expenses\expense_list.html:59
-#: .\expenses\templates\incomes\income_form.html:10
+#: .\expenses\templates\incomes\income_list.html:15
 msgid "Amount"
 msgstr "Сума"
 
-#: .\expenses\forms.py:27 .\expenses\templates\incomes\income_form.html:14
+#: .\expenses\forms.py:27 .\expenses\templates\incomes\income_list.html:16
 msgid "Description"
 msgstr "Опис"
 
 #: .\expenses\forms.py:28 .\expenses\models.py:16
 #: .\expenses\templates\expenses\expense_list.html:40
 #: .\expenses\templates\expenses\expense_list.html:56
-#: .\expenses\templates\incomes\income_form.html:18
+#: .\expenses\templates\incomes\income_list.html:14
 msgid "Date"
 msgstr "Дата"
 
@@ -158,7 +154,7 @@ msgstr "Додати витрату"
 
 #: .\expenses\templates\expenses\add_expense.html:11
 #: .\expenses\templates\expenses\edit_expense.html:11
-#: .\expenses\templates\incomes\income_form.html:21
+#: .\expenses\templates\incomes\income_form.html:11
 msgid "Save"
 msgstr "Зберегти"
 
@@ -166,8 +162,9 @@ msgstr "Зберегти"
 #: .\expenses\templates\expenses\delete_all_expenses.html:11
 #: .\expenses\templates\expenses\delete_expense.html:11
 #: .\expenses\templates\expenses\edit_expense.html:12
+#: .\expenses\templates\incomes\delete_all_incomes.html:11
 #: .\expenses\templates\incomes\income_confirm_delete.html:10
-#: .\expenses\templates\incomes\income_form.html:22
+#: .\expenses\templates\incomes\income_form.html:12
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -178,6 +175,7 @@ msgstr "Видалити всі витрати"
 
 #: .\expenses\templates\expenses\delete_all_expenses.html:7
 #: .\expenses\templates\expenses\delete_expense.html:7
+#: .\expenses\templates\incomes\delete_all_incomes.html:7
 msgid "Are you sure you want to delete"
 msgstr "Ви впевнені, що хочете видалити"
 
@@ -186,10 +184,12 @@ msgid "all expenses"
 msgstr "всі витрати"
 
 #: .\expenses\templates\expenses\delete_all_expenses.html:7
+#: .\expenses\templates\incomes\delete_all_incomes.html:7
 msgid "This action cannot be undone"
 msgstr "Цю дію неможливо скасувати"
 
 #: .\expenses\templates\expenses\delete_all_expenses.html:10
+#: .\expenses\templates\incomes\delete_all_incomes.html:10
 msgid "Yes, Delete All"
 msgstr "Так, видалити всі"
 
@@ -226,16 +226,12 @@ msgid "Filter"
 msgstr "Фільтрувати"
 
 #: .\expenses\templates\expenses\expense_list.html:29
-#, fuzzy
-#| msgid "Date"
-msgid "From Date"
-msgstr "Дата"
+msgid "From date"
+msgstr "Дата від"
 
 #: .\expenses\templates\expenses\expense_list.html:32
-#, fuzzy
-#| msgid "Date"
-msgid "To Date"
-msgstr "Дата"
+msgid "To date"
+msgstr "Дата до"
 
 #: .\expenses\templates\expenses\expense_list.html:36
 msgid "Sort by"
@@ -258,55 +254,56 @@ msgid "Name"
 msgstr "Назва"
 
 #: .\expenses\templates\expenses\expense_list.html:60
+#: .\expenses\templates\incomes\income_list.html:17
 msgid "Actions"
 msgstr "Дії"
 
 #: .\expenses\templates\expenses\expense_list.html:73
-#: .\expenses\templates\incomes\income_list.html:13
+#: .\expenses\templates\incomes\income_list.html:28
 msgid "Edit"
 msgstr "Редагувати"
 
 #: .\expenses\templates\expenses\expense_list.html:76
-#: .\expenses\templates\incomes\income_list.html:14
+#: .\expenses\templates\incomes\income_list.html:29
 msgid "Delete"
 msgstr "Видалити"
 
+#: .\expenses\templates\incomes\delete_all_incomes.html:6
+#: .\expenses\templates\incomes\income_list.html:43
+msgid "Delete All Incomes"
+msgstr "Видалити всі доходи"
+
+#: .\expenses\templates\incomes\delete_all_incomes.html:7
+msgid "all incomes"
+msgstr "всі доходи"
+
 #: .\expenses\templates\incomes\income_confirm_delete.html:5
-#, fuzzy
-#| msgid "Delete Expense"
 msgid "Delete Income"
-msgstr "Видалити витрату"
+msgstr "Видалити дохід"
 
 #: .\expenses\templates\incomes\income_confirm_delete.html:6
-#, fuzzy
-#| msgid "Are you sure you want to delete"
 msgid "Are you sure you want to delete this income?"
-msgstr "Ви впевнені, що хочете видалити"
+msgstr "Ви впевнені, що хочете видалити цей дохід?"
 
 #: .\expenses\templates\incomes\income_confirm_delete.html:9
-#, fuzzy
-#| msgid "Yes, Delete"
 msgid "Yes, delete"
 msgstr "Так, видалити"
 
-#: .\expenses\templates\incomes\income_form.html:5
+#: .\expenses\templates\incomes\income_form.html:6
 msgid "Income Form"
 msgstr "Форма доходу"
 
-#: .\expenses\templates\incomes\income_list.html:5
+#: .\expenses\templates\incomes\income_list.html:7
 msgid "Your Incomes"
 msgstr "Ваші доходи"
 
-#: .\expenses\templates\incomes\income_list.html:6
+#: .\expenses\templates\incomes\income_list.html:8
 msgid "Add Income"
 msgstr "Додати дохід"
 
-#: .\expenses\templates\incomes\income_list.html:18
+#: .\expenses\templates\incomes\income_list.html:34
 msgid "No incomes yet."
 msgstr "Доходів ще немає"
-
-#~ msgid "Change Language"
-#~ msgstr "Змінити мову"
 
 #~ msgid "Expense Tracker"
 #~ msgstr "Трекер витрат"
