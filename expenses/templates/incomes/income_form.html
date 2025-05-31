@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<h2>{% trans "Income Form" %}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-success" type="submit">{% trans "Save" %}</button>
+    <a class="btn btn-secondary" href="{% url 'income_list' %}">{% trans "Cancel" %}</a>
+</form>
+{% endblock %}

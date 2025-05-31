@@ -19,10 +19,19 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="{% trans 'Toggle navigation' %}">
                 <span class="navbar-toggler-icon"></span>
-        </button>
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="ms-auto d-flex align-items-center h-100">
-                    <form action="{% url 'set_language' %}" method="post" class="d-flex align-items-center">
+                <ul class="nav nav-pills me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'expense_list' %}">{% trans "Expenses" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'income_list' %}">{% trans "Income" %}</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center">
+                    <form action="{% url 'set_language' %}" method="post" class="d-flex align-items-center me-3">
                         {% csrf_token %}
                         <select name="language" class="form-select form-select-sm me-2" style="width: auto;">
                             {% for lang_code, lang_name in LANGUAGES|default_if_none:"" %}
@@ -43,7 +52,6 @@
                         <a href="{% url 'login' %}" class="btn btn-sm btn-outline-light me-2">{% trans "Login" %}</a>
                         <a href="{% url 'register' %}" class="btn btn-sm btn-outline-light">{% trans "Register" %}</a>
                     {% endif %}
-
                 </div>
             </div>
         </div>   
@@ -62,7 +70,7 @@
     <!-- Activate selectpicker -->
     <script>
         $(document).ready(function() {
-        $('.selectpicker').selectpicker();
+            $('.selectpicker').selectpicker();
         });
     </script>
 

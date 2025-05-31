@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Expense
 from .forms import ExpenseForm
+from .models import Income
+from .forms import IncomeForm
 from django.db.models import Q
 from datetime import datetime
 from django.contrib.auth.decorators import login_required # Декоратор для захисту від неавторизованого доступу  
 
-
-# Відображення списку витрат з можливістю фільтрації та сортування
+#Expense - це витрати, які користувач може додавати, редагувати та видаляти.
+    # Відображення списку витрат з можливістю фільтрації та сортування
 @login_required 
 def expense_list(request):
     expenses = Expense.objects.all()  # За замовчуванням беремо всі витрати
@@ -78,3 +80,45 @@ def delete_all_expenses(request):
         return redirect("expense_list")
 
     return render(request, "expenses/delete_all_expenses.html")
+
+# Incomes - це доходи користувача, які він може додавати, редагувати та видаляти.
+@login_required
+def income_list(request):
+    incomes = Income.objects.filter(user=request.user)
+    return render(request, "incomes/income_list.html", {"incomes": incomes})
+
+
+@login_required
+def income_create(request):
+    if request.method == "POST":
+        form = IncomeForm(request.POST)
+        if form.is_valid():
+            income = form.save(commit=False)
+            income.user = request.user
+            income.save()
+            return redirect("income_list")
+    else:
+        form = IncomeForm()
+    return render(request, "incomes/income_form.html", {"form": form})
+
+
+@login_required
+def income_edit(request, pk):
+    income = Income.objects.get(pk=pk, user=request.user)
+    if request.method == "POST":
+        form = IncomeForm(request.POST, instance=income)
+        if form.is_valid():
+            form.save()
+            return redirect("income_list")
+    else:
+        form = IncomeForm(instance=income)
+    return render(request, "incomes/income_form.html", {"form": form})
+
+
+@login_required
+def income_delete(request, pk):
+    income = Income.objects.get(pk=pk, user=request.user)
+    if request.method == "POST":
+        income.delete()
+        return redirect("income_list")
+    return render(request, "incomes/income_confirm_delete.html", {"income": income})
