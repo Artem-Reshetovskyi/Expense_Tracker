@@ -20,7 +20,7 @@ class Expense(models.Model):
 
 
 class Income(models.Model):
-    class Description(models.TextChoices):
+    class DescriptionChoices(models.TextChoices):
         SALARY = "salary", _("Salary")
         BONUS = "bonus", _("Bonus")
         INVESTMENT = "investment", _("Investment")
@@ -29,7 +29,7 @@ class Income(models.Model):
         OTHER = "other", _("Other")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    description = models.CharField(max_length=50, choices=Description.choices, default=Description.OTHER)
+    description = models.CharField(max_length=50, choices=DescriptionChoices.choices, default=DescriptionChoices.OTHER)
     date = models.DateField()
 
     class Meta:
