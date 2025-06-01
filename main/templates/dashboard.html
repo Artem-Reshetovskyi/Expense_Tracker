@@ -1,31 +1,27 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load static %}
-
-{% block title %}{% trans "Dashboard" %}{% endblock %}
-
+{% block title %}
+    {% trans "Dashboard" %}
+{% endblock %}
 {% block content %}
-<h2>{% trans "Dashboard" %}</h2>
-
-<div class="row">
-    <div class="col-md-6">
-        <h4>{% trans "Expenses" %}</h4>
-        <canvas id="expensesChart"></canvas>
+    <h2>{% trans "Dashboard" %}</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>{% trans "Expenses" %}</h4>
+            <canvas id="expensesChart"></canvas>
+        </div>
+        <div class="col-md-6">
+            <h4>{% trans "Incomes" %}</h4>
+            <canvas id="incomesChart"></canvas>
+        </div>
     </div>
-    <div class="col-md-6">
-        <h4>{% trans "Incomes" %}</h4>
-        <canvas id="incomesChart"></canvas>
+    <div class="mt-4">
+        <h4>{% trans "Balance" %}: {{ balance }}</h4>
     </div>
-</div>
-
-<div class="mt-4">
-    <h4>{% trans "Balance" %}: {{ balance }}</h4>
-</div>
-
-<!-- Підключення Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
+    <!-- Підключення Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
     // Тут має бути JS код, що малює графіки на основі даних з бекенда
     // Приклад пустих графіків:
     
@@ -86,6 +82,5 @@ const expensesData = {
     document.getElementById('incomesChart'),
     configIncomes
   );
-</script>
-
+    </script>
 {% endblock %}

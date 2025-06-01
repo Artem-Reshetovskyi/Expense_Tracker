@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% load i18n %}
-
 {% block content %}
-<div class="container mt-4">
-    <h1 class="text-danger">❌ {% trans "Delete Expense" %}</h1>
-    <p>{% trans "Are you sure you want to delete" %} <strong>"{{ expense.name }}"</strong>?</p>
-    <form method="post" class="mt-3">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">{% trans "Yes, Delete" %}</button>
-        <a href="{% url 'expenses:expense_list' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
-    </form>
-</div>
+    <div class="container mt-4">
+        <h1 class="text-danger">❌ {% trans "Delete Expense" %}</h1>
+        <p>
+            {% trans "Are you sure you want to delete" %} <strong>"{{ expense.name }}"</strong>?
+        </p>
+        <form method="post" class="mt-3">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">{% trans "Yes, Delete" %}</button>
+            <a href="{% url 'expenses:expense_list' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+        </form>
+    </div>
 {% endblock %}

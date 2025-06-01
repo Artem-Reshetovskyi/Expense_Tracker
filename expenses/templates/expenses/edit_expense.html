@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% load i18n %}
-
 {% block content %}
-<div class="container mt-4">
-    <h1 class="mb-3">{% trans "Edit Expense" %}</h1>
-    <form method="post" class="card p-4 shadow">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="d-flex justify-content-between">
-            <button type="submit" class="btn btn-primary btn-sm">{% trans "Save" %}</button>
-            <a href="{% url 'expenses:expense_list' %}" class="btn btn-secondary btn-sm">{% trans "Cancel"%}</a>
-        </div>
-    </form>
-</div>
+    <div class="container mt-4">
+        <h1 class="mb-3">{% trans "Edit Expense" %}</h1>
+        <form method="post" class="card p-4 shadow">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary btn-sm">{% trans "Save" %}</button>
+                <a href="{% url 'expenses:expense_list' %}"
+                   class="btn btn-secondary btn-sm">{% trans "Cancel" %}</a>
+            </div>
+        </form>
+    </div>
 {% endblock %}
