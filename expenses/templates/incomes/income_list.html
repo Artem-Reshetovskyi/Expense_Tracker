@@ -7,6 +7,47 @@
 <h1>{% trans "Your Incomes" %}</h1>
 <a class="btn btn-success mb-2" href="{% url 'income_create' %}">{% trans "Add Income" %}</a>
 
+<!-- Форма для фільтрації та сортування доходів -->
+<form method="get" action="{% url 'income_list' %}">
+    <!-- Фільтр за описом доходу -->
+    <label for="description">{% trans "Filter by Description" %}:</label>
+    <select name="description" id="description">
+        <option value="">{% trans "All Descriptions" %}</option>
+        <option value="salary" {% if request.GET.description == 'salary' %}selected{% endif %}>{% trans "Salary" %}</option>
+        <option value="bonus" {% if request.GET.description == 'bonus' %}selected{% endif %}>{% trans "Bonus" %}</option>
+        <option value="investment" {% if request.GET.description == 'investment' %}selected{% endif %}>{% trans "Investment" %}</option>
+        <option value="freelance" {% if request.GET.description == 'freelance' %}selected{% endif %}>{% trans "Freelance" %}</option>
+        <option value="rent" {% if request.GET.description == 'rent' %}selected{% endif %}>{% trans "Rent" %}</option>
+        <option value="sale" {% if request.GET.description == 'sale' %}selected{% endif %}>{% trans "Sale" %}</option>
+        <option value="other" {% if request.GET.description == 'other' %}selected{% endif %}>{% trans "Other" %}</option>
+    </select>
+
+    <!-- Кнопка фільтрації -->
+    <button type="submit">{% trans "Filter" %}</button>
+
+    <!-- Фільтр за датою -->
+    <label for="date_from">{% trans "From date" %}:</label>
+    <input type="date" name="date_from" id="date_from" value="{{ request.GET.date_from }}">
+
+    <label for="date_to">{% trans "To date" %}:</label>
+    <input type="date" name="date_to" id="date_to" value="{{ request.GET.date_to }}">
+
+    <!-- Сортування -->
+    <label for="sort_by">{% trans "Sort by" %}:</label>
+    <select name="sort_by" id="sort_by">
+        <option value="">{% trans "Select" %}</option>
+        <option value="amount" {% if request.GET.sort_by == 'amount' %}selected{% endif %}>{% trans "Amount" %}</option>
+        <option value="date" {% if request.GET.sort_by == 'date' %}selected{% endif %}>{% trans "Date" %}</option>
+    </select>
+
+    <!-- Кнопка сортування -->
+    <button type="submit">{% trans "Sort" %}</button>
+
+    <!-- Кнопка скидання фільтрів -->
+    <button type="reset" onclick="window.location.href='{% url 'income_list' %}'">{% trans "Reset" %}</button>
+</form>
+
+
 <div class="table-responsive mt-3">
     <table class="table table-striped table-hover">
         <thead class="table-dark">
