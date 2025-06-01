@@ -6,23 +6,35 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('expenses', '0008_alter_expense_category_alter_expense_name_and_more'),
+        ("expenses", "0008_alter_expense_category_alter_expense_name_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='expense',
-            name='amount',
-            field=models.DecimalField(decimal_places=2, max_digits=10, verbose_name='Amount'),
+            model_name="expense",
+            name="amount",
+            field=models.DecimalField(
+                decimal_places=2, max_digits=10, verbose_name="Amount"
+            ),
         ),
         migrations.AlterField(
-            model_name='expense',
-            name='category',
-            field=models.CharField(choices=[('food', 'Food'), ('transport', 'Transport'), ('entertainment', 'Entertainment'), ('utilities', 'Utilities'), ('other', 'Other')], max_length=20, verbose_name='Category'),
+            model_name="expense",
+            name="category",
+            field=models.CharField(
+                choices=[
+                    ("food", "Food"),
+                    ("transport", "Transport"),
+                    ("entertainment", "Entertainment"),
+                    ("utilities", "Utilities"),
+                    ("other", "Other"),
+                ],
+                max_length=20,
+                verbose_name="Category",
+            ),
         ),
         migrations.AlterField(
-            model_name='expense',
-            name='date',
-            field=models.DateField(verbose_name='Date'),
+            model_name="expense",
+            name="date",
+            field=models.DateField(verbose_name="Date"),
         ),
     ]

@@ -29,31 +29,63 @@
     // Тут має бути JS код, що малює графіки на основі даних з бекенда
     // Приклад пустих графіків:
     
-    const expensesCtx = document.getElementById('expensesChart').getContext('2d');
-    const incomesCtx = document.getElementById('incomesChart').getContext('2d');
+const expensesData = {
+    labels: [
+      {% for e in expenses %}
+        "{{ e.date|date:'Y-m-d' }}",
+      {% endfor %}
+    ],
+    datasets: [{
+      label: '{% trans "Expenses" %}',
+      data: [
+        {% for e in expenses %}
+          {{ e.amount }},
+        {% endfor %}
+      ],
+      borderColor: 'rgb(255, 99, 132)',
+      fill: false,
+    }]
+  };
 
-    const expensesChart = new Chart(expensesCtx, {
-        type: 'bar',
-        data: {
-            labels: ['March', 'April', 'May'], // приклад
-            datasets: [{
-                label: 'Expenses',
-                data: [100, 200, 150],  // ці дані треба замінити на реальні з бекенда
-                backgroundColor: 'rgba(255, 99, 132, 0.5)'
-            }]
-        },
-    });
+  const incomesData = {
+    labels: [
+      {% for i in incomes %}
+        "{{ i.date|date:'Y-m-d' }}",
+      {% endfor %}
+    ],
+    datasets: [{
+      label: '{% trans "Incomes" %}',
+      data: [
+        {% for i in incomes %}
+          {{ i.amount }},
+        {% endfor %}
+      ],
+      borderColor: 'rgb(54, 162, 235)',
+      fill: false,
+    }]
+  };
 
-    const incomesChart = new Chart(incomesCtx, {
-        type: 'bar',
-        data: {
-            labels: ['March', 'April', 'May'], // приклад
-            datasets: [{
-                label: 'Incomes',
-                data: [300, 250, 400],  // ці дані теж треба підставити
-                backgroundColor: 'rgba(54, 162, 235, 0.5)'
-            }]
-        },
-    });
+  const configExpenses = {
+    type: 'line',
+    data: expensesData,
+    options: {}
+  };
+
+  const configIncomes = {
+    type: 'line',
+    data: incomesData,
+    options: {}
+  };
+
+  new Chart(
+    document.getElementById('expensesChart'),
+    configExpenses
+  );
+
+  new Chart(
+    document.getElementById('incomesChart'),
+    configIncomes
+  );
 </script>
+
 {% endblock %}

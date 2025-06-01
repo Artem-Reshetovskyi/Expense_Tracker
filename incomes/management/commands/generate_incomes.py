@@ -1,9 +1,11 @@
-from django.core.management.base import BaseCommand
-from incomes.models import Income
-from django.contrib.auth import get_user_model
-from datetime import datetime
-from calendar import monthrange
 import random
+from calendar import monthrange
+from datetime import datetime
+
+from django.contrib.auth import get_user_model
+from django.core.management.base import BaseCommand
+
+from incomes.models import Income
 
 User = get_user_model()
 

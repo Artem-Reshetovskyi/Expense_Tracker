@@ -8,27 +8,41 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('expenses', '0010_category'),
+        ("expenses", "0010_category"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Income',
+            name="Income",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('amount', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('description', models.CharField(max_length=255)),
-                ('date', models.DateField()),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("amount", models.DecimalField(decimal_places=2, max_digits=10)),
+                ("description", models.CharField(max_length=255)),
+                ("date", models.DateField()),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Income',
-                'verbose_name_plural': 'Incomes',
-                'ordering': ['-date'],
+                "verbose_name": "Income",
+                "verbose_name_plural": "Incomes",
+                "ordering": ["-date"],
             },
         ),
         migrations.DeleteModel(
-            name='Category',
+            name="Category",
         ),
     ]

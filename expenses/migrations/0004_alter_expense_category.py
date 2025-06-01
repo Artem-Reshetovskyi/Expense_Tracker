@@ -6,13 +6,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('expenses', '0003_alter_expense_category'),
+        ("expenses", "0003_alter_expense_category"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='expense',
-            name='category',
-            field=models.CharField(choices=[('food', 'Food'), ('transport', 'Transport'), ('entertainment', 'Entertainment'), ('bills', 'Bills'), ('other', 'Other')], max_length=100),
+            model_name="expense",
+            name="category",
+            field=models.CharField(
+                choices=[
+                    ("food", "Food"),
+                    ("transport", "Transport"),
+                    ("entertainment", "Entertainment"),
+                    ("bills", "Bills"),
+                    ("other", "Other"),
+                ],
+                max_length=100,
+            ),
         ),
     ]

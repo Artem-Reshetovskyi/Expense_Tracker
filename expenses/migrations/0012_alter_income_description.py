@@ -6,13 +6,24 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('expenses', '0011_income_delete_category'),
+        ("expenses", "0011_income_delete_category"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='income',
-            name='description',
-            field=models.CharField(choices=[('salary', 'Salary'), ('bonus', 'Bonus'), ('investment', 'Investment'), ('rent', 'Rent'), ('sale', 'Sale'), ('other', 'Other')], default='other', max_length=50),
+            model_name="income",
+            name="description",
+            field=models.CharField(
+                choices=[
+                    ("salary", "Salary"),
+                    ("bonus", "Bonus"),
+                    ("investment", "Investment"),
+                    ("rent", "Rent"),
+                    ("sale", "Sale"),
+                    ("other", "Other"),
+                ],
+                default="other",
+                max_length=50,
+            ),
         ),
     ]

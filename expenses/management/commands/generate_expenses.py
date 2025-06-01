@@ -1,18 +1,44 @@
-from django.core.management.base import BaseCommand
-from expenses.models import Expense
-from django.contrib.auth import get_user_model
-from datetime import datetime, timedelta
 import random
+from datetime import datetime, timedelta
+
+from django.contrib.auth import get_user_model
+from django.core.management.base import BaseCommand
+
+from expenses.models import Expense
 
 User = get_user_model()
 
 CATEGORIES = ["food", "transport", "entertainment", "bills", "other"]
 NAMES = {
-    "food": ["Groceries", "Restaurant", "Coffee", "Supermarket", "Fast Food", "Snacks", "Misc"],
+    "food": [
+        "Groceries",
+        "Restaurant",
+        "Coffee",
+        "Supermarket",
+        "Fast Food",
+        "Snacks",
+        "Misc",
+    ],
     "transport": ["Bus", "Train", "Fuel", "Taxi", "Parking", "Car Rental"],
-    "entertainment": ["Movies", "Games", "Subscription", "Concert", "Books", "Hobby", "Misc"],
+    "entertainment": [
+        "Movies",
+        "Games",
+        "Subscription",
+        "Concert",
+        "Books",
+        "Hobby",
+        "Misc",
+    ],
     "bills": ["Electricity", "Internet", "Water", "Phone", "Rent", "Gas"],
-    "other": ["Gift", "Clothing", "Health", "Education", "Travel", "Charity", "Miscellaneous"],
+    "other": [
+        "Gift",
+        "Clothing",
+        "Health",
+        "Education",
+        "Travel",
+        "Charity",
+        "Miscellaneous",
+    ],
 }
 
 

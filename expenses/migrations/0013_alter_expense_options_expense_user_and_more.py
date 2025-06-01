@@ -8,24 +8,45 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('expenses', '0012_alter_income_description'),
+        ("expenses", "0012_alter_income_description"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='expense',
-            options={'ordering': ['-date'], 'verbose_name': 'Expense', 'verbose_name_plural': 'Expenses'},
+            name="expense",
+            options={
+                "ordering": ["-date"],
+                "verbose_name": "Expense",
+                "verbose_name_plural": "Expenses",
+            },
         ),
         migrations.AddField(
-            model_name='expense',
-            name='user',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            model_name="expense",
+            name="user",
+            field=models.ForeignKey(
+                default=1,
+                on_delete=django.db.models.deletion.CASCADE,
+                to=settings.AUTH_USER_MODEL,
+            ),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='income',
-            name='description',
-            field=models.CharField(blank=True, choices=[('salary', 'Salary'), ('bonus', 'Bonus'), ('investment', 'Investment'), ('rent', 'Rent'), ('sale', 'Sale'), ('other', 'Other')], max_length=50, null=True, verbose_name='Description'),
+            model_name="income",
+            name="description",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("salary", "Salary"),
+                    ("bonus", "Bonus"),
+                    ("investment", "Investment"),
+                    ("rent", "Rent"),
+                    ("sale", "Sale"),
+                    ("other", "Other"),
+                ],
+                max_length=50,
+                null=True,
+                verbose_name="Description",
+            ),
         ),
     ]

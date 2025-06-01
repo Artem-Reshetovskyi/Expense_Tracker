@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
@@ -15,7 +15,13 @@ class Income(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    description = models.CharField(max_length=50, choices=DescriptionChoices.choices, blank=True, null=True, verbose_name=_("Description"))
+    description = models.CharField(
+        max_length=50,
+        choices=DescriptionChoices.choices,
+        blank=True,
+        null=True,
+        verbose_name=_("Description"),
+    )
     date = models.DateField()
 
     class Meta:

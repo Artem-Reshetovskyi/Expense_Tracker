@@ -6,21 +6,30 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('expenses', '0007_category_alter_expense_category'),
+        ("expenses", "0007_category_alter_expense_category"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='expense',
-            name='category',
-            field=models.CharField(choices=[('food', 'Food'), ('transport', 'Transport'), ('entertainment', 'Entertainment'), ('bills', 'Bills'), ('other', 'Other')], max_length=20),
+            model_name="expense",
+            name="category",
+            field=models.CharField(
+                choices=[
+                    ("food", "Food"),
+                    ("transport", "Transport"),
+                    ("entertainment", "Entertainment"),
+                    ("bills", "Bills"),
+                    ("other", "Other"),
+                ],
+                max_length=20,
+            ),
         ),
         migrations.AlterField(
-            model_name='expense',
-            name='name',
-            field=models.CharField(max_length=255, verbose_name='Expense Name'),
+            model_name="expense",
+            name="name",
+            field=models.CharField(max_length=255, verbose_name="Expense Name"),
         ),
         migrations.DeleteModel(
-            name='Category',
+            name="Category",
         ),
     ]

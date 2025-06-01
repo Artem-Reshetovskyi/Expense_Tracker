@@ -6,18 +6,42 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('expenses', '0013_alter_expense_options_expense_user_and_more'),
+        ("expenses", "0013_alter_expense_options_expense_user_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='expense',
-            name='category',
-            field=models.CharField(choices=[('food', 'Food'), ('transport', 'Transport'), ('entertainment', 'Entertainment'), ('bills', 'Bills'), ('other', 'Other')], max_length=20, verbose_name='Category'),
+            model_name="expense",
+            name="category",
+            field=models.CharField(
+                choices=[
+                    ("food", "Food"),
+                    ("transport", "Transport"),
+                    ("entertainment", "Entertainment"),
+                    ("bills", "Bills"),
+                    ("other", "Other"),
+                ],
+                max_length=20,
+                verbose_name="Category",
+            ),
         ),
         migrations.AlterField(
-            model_name='income',
-            name='description',
-            field=models.CharField(blank=True, choices=[('salary', 'Salary'), ('bonus', 'Bonus'), ('investment', 'Investment'), ('freelance', 'Freelance'), ('rent', 'Rent'), ('sale', 'Sale'), ('other', 'Other')], max_length=50, null=True, verbose_name='Description'),
+            model_name="income",
+            name="description",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("salary", "Salary"),
+                    ("bonus", "Bonus"),
+                    ("investment", "Investment"),
+                    ("freelance", "Freelance"),
+                    ("rent", "Rent"),
+                    ("sale", "Sale"),
+                    ("other", "Other"),
+                ],
+                max_length=50,
+                null=True,
+                verbose_name="Description",
+            ),
         ),
     ]

@@ -1,12 +1,17 @@
 from django import forms
-from .models import Income
 from django.utils.translation import gettext_lazy as _
+
+from .models import Income
 
 
 class IncomeForm(forms.ModelForm):
     class Meta:
         model = Income
-        fields = ["amount", "description", "date",]
+        fields = [
+            "amount",
+            "description",
+            "date",
+        ]
         labels = {
             "amount": _("Amount"),
             "description": _("Description"),

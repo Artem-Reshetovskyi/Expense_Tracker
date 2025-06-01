@@ -1,12 +1,16 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Expense
-from .forms import ExpenseForm
 from datetime import datetime
-from django.contrib.auth.decorators import login_required # Декоратор для захисту від неавторизованого доступу  
+
+from django.contrib.auth.decorators import \
+    login_required  # Декоратор для захисту від неавторизованого доступу
+from django.shortcuts import get_object_or_404, redirect, render
+
+from .forms import ExpenseForm
+from .models import Expense
+
 
 # Expense - це витрати, які користувач може додавати, редагувати та видаляти.
 # Відображення списку витрат з можливістю фільтрації та сортування
-@login_required 
+@login_required
 def expense_list(request):
     expenses = Expense.objects.all()  # За замовчуванням беремо всі витрати
     category = request.GET.get("category")  # Отримуємо категорію з параметрів URL
@@ -39,7 +43,9 @@ def add_expense(request):
     if request.method == "POST":
         form = ExpenseForm(request.POST)
         if form.is_valid():
-            expense = form.save(commit=False)  # Створюємо об'єкт витрати, але не зберігаємо його ще
+            expense = form.save(
+                commit=False
+            )  # Створюємо об'єкт витрати, але не зберігаємо його ще
             expense.user = request.user  # Прив'язуємо витрату до поточного користувача
             expense.save()  # Зберігаємо витрату в базі даних
             return redirect("expenses:expense_list")
@@ -53,13 +59,17 @@ def add_expense(request):
 def edit_expense(request, pk):
     expense = get_object_or_404(Expense, id=pk)  # Отримуємо витрату або повертаємо 404
     if request.method == "POST":
-        form = ExpenseForm(request.POST, instance=expense)  # Форма із заповненими даними
+        form = ExpenseForm(
+            request.POST, instance=expense
+        )  # Форма із заповненими даними
         if form.is_valid():
             form.save()  # Зберігаємо зміни
             return redirect("expenses:expense_list")  # Повертаємося до списку витрат
     else:
         form = ExpenseForm(instance=expense)  # Заповнюємо форму поточними даними
-    return render(request, "expenses/edit_expense.html", {"form": form, "expense": expense})
+    return render(
+        request, "expenses/edit_expense.html", {"form": form, "expense": expense}
+    )
 
 
 @login_required  # Додаємо захист для функції видалення витрат

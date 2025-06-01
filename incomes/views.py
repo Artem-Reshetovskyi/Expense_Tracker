@@ -1,18 +1,20 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Income
-from .forms import IncomeForm
-from django.db.models import Q
-from datetime import datetime
-from django.db.models import Sum
+from datetime import datetime, timedelta
+
+from django.contrib.auth.decorators import \
+    login_required  # Декоратор для захисту від неавторизованого доступу
+from django.db.models import Q, Sum
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.timezone import now
-from datetime import timedelta
-from django.contrib.auth.decorators import login_required # Декоратор для захисту від неавторизованого доступу  
+
+from .forms import IncomeForm
+from .models import Income
+
 
 # Incomes - це доходи користувача, які він може додавати, редагувати та видаляти.
 @login_required
 def income_list(request):
     incomes = Income.objects.filter(user=request.user)
-   
+
     # Фільтрація за описом
     description = request.GET.get("description")
     if description:
@@ -32,7 +34,7 @@ def income_list(request):
         incomes = incomes.order_by("amount")
     elif sort_by == "date":
         incomes = incomes.order_by("date")
-        
+
     return render(request, "incomes/income_list.html", {"incomes": incomes})
 
 
@@ -70,6 +72,7 @@ def income_delete(request, pk):
         income.delete()
         return redirect("incomes:income_list")
     return render(request, "incomes/income_confirm_delete.html", {"income": income})
+
 
 @login_required
 def delete_all_incomes(request):
