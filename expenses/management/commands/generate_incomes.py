@@ -1,18 +1,20 @@
 from django.core.management.base import BaseCommand
-from incomes.models import Income, DescriptionChoices 
+from expenses.models import Income
 from django.contrib.auth import get_user_model
 from datetime import datetime, timedelta
 import random
 
 User = get_user_model()
 
+description_choices = Income.DescriptionChoices
+
 INCOME_SOURCES = {
-    DescriptionChoices.SALARY: (3000, 5000),
-    DescriptionChoices.BONUS: (200, 800),
-    DescriptionChoices.FREELANCE: (500, 1500),
-    DescriptionChoices.OTHER: (50, 500),
-    DescriptionChoices.INVESTMENT: (100, 1000),
-    DescriptionChoices.RENT: (800, 2000),
+    Income.DescriptionChoices.SALARY: (3000, 5000),
+    Income.DescriptionChoices.BONUS: (200, 800),
+    Income.DescriptionChoices.FREELANCE: (500, 1500),
+    Income.DescriptionChoices.OTHER: (50, 500),
+    Income.DescriptionChoices.INVESTMENT: (100, 1000),
+    Income.DescriptionChoices.RENT: (800, 2000),
 }
 
 
