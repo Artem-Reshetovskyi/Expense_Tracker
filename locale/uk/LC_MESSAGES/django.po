@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-01 00:54+0200\n"
+"POT-Creation-Date: 2025-06-01 02:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,7 +46,7 @@ msgstr "Виберіть..."
 msgid "Amount"
 msgstr "Сума"
 
-#: .\expenses\forms.py:33 .\expenses\models.py:38
+#: .\expenses\forms.py:33 .\expenses\models.py:39
 #: .\expenses\templates\incomes\income_list.html:15
 msgid "Description"
 msgstr "Опис"
@@ -70,11 +70,11 @@ msgstr "Транспорт"
 msgid "Entertainment"
 msgstr "Розваги"
 
-#: .\expenses\models.py:10
-msgid "Utilities"
-msgstr "Комунальні послуги"
+#: .\expenses\models.py:10 .\expenses\templates\expenses\expense_list.html:21
+msgid "Bills"
+msgstr "Рахунки"
 
-#: .\expenses\models.py:11 .\expenses\models.py:34
+#: .\expenses\models.py:11 .\expenses\models.py:35
 #: .\expenses\templates\expenses\expense_list.html:22
 msgid "Other"
 msgstr "Інше"
@@ -108,18 +108,22 @@ msgid "Investment"
 msgstr "Інвестиції"
 
 #: .\expenses\models.py:32
+msgid "Freelance"
+msgstr "Підробіток"
+
+#: .\expenses\models.py:33
 msgid "Rent"
 msgstr "Оренда"
 
-#: .\expenses\models.py:33
+#: .\expenses\models.py:34
 msgid "Sale"
 msgstr "Продаж"
 
-#: .\expenses\models.py:42 .\expenses\templates\base.html:29
+#: .\expenses\models.py:43 .\expenses\templates\base.html:29
 msgid "Income"
 msgstr "Дохід"
 
-#: .\expenses\models.py:43
+#: .\expenses\models.py:44
 msgid "Incomes"
 msgstr "Доходи"
 
@@ -227,10 +231,6 @@ msgstr "Фільтрувати за категорією"
 #: .\expenses\templates\expenses\expense_list.html:17
 msgid "All Categories"
 msgstr "Всі категорії"
-
-#: .\expenses\templates\expenses\expense_list.html:21
-msgid "Bills"
-msgstr "Рахунки"
 
 #: .\expenses\templates\expenses\expense_list.html:26
 msgid "Filter"
