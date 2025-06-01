@@ -33,3 +33,14 @@ button:hover {
     background-color: #0056b3;
 }
 
+.card-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    min-width: 200px;
+}
+

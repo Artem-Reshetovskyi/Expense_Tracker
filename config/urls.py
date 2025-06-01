@@ -19,16 +19,14 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.urls import include, path
 from django.views.generic.base import RedirectView
-
 from main.views import dashboard
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("main/", include("main.urls")),
-    path("", dashboard, name="dashboard"),
-    path("accounts/", include("accounts.urls")),  # Додаємо URL для облікових записів
     path("i18n/", include("django.conf.urls.i18n")),
     path("", include("main.urls")),  # шлях до головної сторінки
+    path("", dashboard, name="dashboard"),
+    path("accounts/", include("accounts.urls")),  # Додаємо URL для облікових записів
     path("expenses/", include("expenses.urls")),  # шлях до expenses.urls
     path("incomes/", include("incomes.urls")),  # шлях до incomes.urls
 ]

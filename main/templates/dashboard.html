@@ -1,31 +1,41 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% load static %}
-{% block title %}
-    {% trans "Dashboard" %}
-{% endblock %}
 {% block content %}
-    <h2>{% trans "Dashboard" %}</h2>
-    <div class="row">
-        <div class="col-md-6">
-            <h4>{% trans "Expenses" %}</h4>
-            <canvas id="expensesChart"></canvas>
-        </div>
-        <div class="col-md-6">
-            <h4>{% trans "Incomes" %}</h4>
-            <canvas id="incomesChart"></canvas>
+
+<h1>{% trans "Dashboard" %}</h1>
+
+<div class="card-container">
+    <div class="card text-bg-success mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{% trans "Total Incomes" %}</h5>
+            <p class="card-text">{{ total_incomes }} ₴</p>
         </div>
     </div>
-    <div class="mt-4">
-        <h4>{% trans "Balance" %}: {{ balance }}</h4>
+    <div class="card text-bg-danger mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{% trans "Total Expenses" %}</h5>
+            <p class="card-text">{{ total_expenses }} ₴</p>
+        </div>
     </div>
-    <!-- Підключення Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-    // Тут має бути JS код, що малює графіки на основі даних з бекенда
-    // Приклад пустих графіків:
-    
-const expensesData = {
+    <div class="card text-bg-primary mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{% trans "Balance" %}</h5>
+            <p class="card-text">{{ balance }} ₴</p>
+        </div>
+    </div>
+</div>
+
+<div>
+  <canvas id="expensesChart" width="400" height="200"></canvas>
+</div>
+
+<div>
+  <canvas id="incomesChart" width="400" height="200"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const expensesData = {
     labels: [
       {% for e in expenses %}
         "{{ e.date|date:'Y-m-d' }}",
@@ -82,5 +92,6 @@ const expensesData = {
     document.getElementById('incomesChart'),
     configIncomes
   );
-    </script>
+</script>
+
 {% endblock %}
