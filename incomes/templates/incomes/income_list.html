@@ -5,10 +5,10 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 <h1>{% trans "Your Incomes" %}</h1>
-<a class="btn btn-success mb-2" href="{% url 'income_create' %}">{% trans "Add Income" %}</a>
+<a class="btn btn-success mb-2" href="{% url 'incomes:add_income' %}">{% trans "Add Income" %}</a>
 
 <!-- Форма для фільтрації та сортування доходів -->
-<form method="get" action="{% url 'income_list' %}">
+<form method="get" action="{% url 'incomes:income_list' %}">
     <!-- Фільтр за описом доходу -->
     <label for="description">{% trans "Filter by Description" %}:</label>
     <select name="description" id="description">
@@ -44,7 +44,7 @@
     <button type="submit">{% trans "Sort" %}</button>
 
     <!-- Кнопка скидання фільтрів -->
-    <button type="reset" onclick="window.location.href='{% url 'income_list' %}'">{% trans "Reset" %}</button>
+    <button type="reset" onclick="window.location.href='{% url 'incomes:income_list' %}'">{% trans "Reset" %}</button>
 </form>
 
 
@@ -66,8 +66,8 @@
                     <td>{{ income.amount }}</td>
                     <td style="text-align: right; white-space: nowrap;">
                         <span>
-                            <a class="btn btn-sm btn-primary" href="{% url 'income_edit' income.pk %}">✏️ {% trans "Edit" %}</a>
-                            <a class="btn btn-sm btn-danger" href="{% url 'income_delete' income.pk %}">🗑 {% trans "Delete" %}</a>
+                            <a class="btn btn-sm btn-primary" href="{% url 'incomes:income_edit' income.pk %}">✏️ {% trans "Edit" %}</a>
+                            <a class="btn btn-sm btn-danger" href="{% url 'incomes:income_delete' income.pk %}">🗑 {% trans "Delete" %}</a>
                         </span>
                     </td>
                 </tr>
@@ -80,7 +80,7 @@
 
 <!-- Кнопка для видалення всіх доходів --> 
 <div class="d-flex justify-content-end mb-3">
-    <a href="{% url 'delete_all_incomes' %}" class="btn btn-warning">
+    <a href="{% url 'incomes:delete_all_incomes' %}" class="btn btn-warning">
         ⚠️ {% trans "Delete All Incomes" %}
     </a>
 </div>

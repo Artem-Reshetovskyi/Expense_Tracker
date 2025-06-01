@@ -9,7 +9,7 @@
         {{ form.as_p }}
         <div class="d-flex justify-content-between">
             <button type="submit" class="btn btn-primary btn-sm">{% trans "Save" %}</button>
-            <a href="{% url 'expense_list' %}" class="btn btn-secondary btn-sm">{% trans "Cancel"%}</a>
+            <a href="{% url 'expenses:expense_list' %}" class="btn btn-secondary btn-sm">{% trans "Cancel"%}</a>
         </div>
     </form>
 </div>

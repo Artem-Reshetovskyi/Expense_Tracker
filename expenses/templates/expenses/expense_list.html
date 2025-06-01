@@ -7,10 +7,10 @@
 <h1>{% trans "Expense List" %}</h1>
 
 <!-- Кнопка для додавання витрат -->
-<a href="{% url 'add_expense' %}"><button>{% trans "Add Expense" %}</button></a>
+<a href="{% url 'expenses:add_expense' %}"><button>{% trans "Add Expense" %}</button></a>
 
 <!-- Форма для фільтрації та сортування витрат -->
-<form method="get" action="{% url 'expense_list' %}">
+<form method="get" action="{% url 'expenses:expense_list' %}">
     <!-- Фільтр за категорією -->
     <label for="category">{% trans "Filter by Category" %}:</label>
     <select name="category" id="category">
@@ -44,7 +44,7 @@
     <button type="submit">{% trans "Sort" %}</button>
 
     <!-- Кнопка скидання фільтрів -->
-    <button type="reset" onclick="window.location.href='{% url 'expense_list' %}'">{% trans "Reset" %}</button>
+    <button type="reset" onclick="window.location.href='{% url 'expenses:expense_list' %}'">{% trans "Reset" %}</button>
 </form>
 
 
@@ -70,8 +70,8 @@
                     <td style="text-align: right; white-space: nowrap;">
                         <!-- Кнопки для редагування та видалення витрати -->
                         <div style="display: flex; gap: 10px; justify-content: flex-end; align-items: center;">
-                            <a href="{% url 'edit_expense' expense.id %}" class="btn btn-primary btn-sm">✏️ {% trans "Edit" %}</a>
-                            <form action="{% url 'delete_expense' expense.id %}" style="margin: 0;">
+                            <a href="{% url 'expenses:edit_expense' expense.id %}" class="btn btn-primary btn-sm">✏️ {% trans "Edit" %}</a>
+                            <form action="{% url 'expenses:delete_expense' expense.id %}" style="margin: 0;">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-danger btn-sm">🗑 {% trans "Delete" %}</button>
                             </form>
@@ -85,7 +85,7 @@
 
 <!-- Кнопка для видалення всіх витрат -->
 <div class="d-flex justify-content-end mb-3">
-    <a href="{% url 'delete_all_expenses' %}" class="btn btn-warning">
+    <a href="{% url 'expenses:delete_all_expenses' %}" class="btn btn-warning">
         ⚠️ {% trans "Delete All Expenses" %}
     </a>
 </div>

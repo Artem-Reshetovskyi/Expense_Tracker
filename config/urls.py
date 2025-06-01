@@ -17,13 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
 from django.urls import path, include
+from main.views import dashboard
 from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("main/", include("main.urls")),
+    path("", dashboard, name="dashboard"),
     path("accounts/", include("accounts.urls")),  # Додаємо URL для облікових записів
     path("i18n/", include("django.conf.urls.i18n")),
-    #path("set_language/", i18n_patterns, name="set_language"),
-    path("expenses/", include("expenses.urls")),  # Додаємо наші URL
-    path('', RedirectView.as_view(url='/expenses/', permanent=False)), # redirect ze strony głównej do expenses
-]
+    path("", include("main.urls")),  # шлях до головної сторінки
+    path("expenses/", include("expenses.urls")),  # шлях до expenses.urls
+    path("incomes/", include("incomes.urls")),  # шлях до incomes.urls
+    ]

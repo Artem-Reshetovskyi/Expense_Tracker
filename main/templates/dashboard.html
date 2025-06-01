@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Dashboard" %}{% endblock %}
+
+{% block content %}
+<h2>{% trans "Dashboard" %}</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>{% trans "Expenses" %}</h4>
+        <canvas id="expensesChart"></canvas>
+    </div>
+    <div class="col-md-6">
+        <h4>{% trans "Incomes" %}</h4>
+        <canvas id="incomesChart"></canvas>
+    </div>
+</div>
+
+<div class="mt-4">
+    <h4>{% trans "Balance" %}: {{ balance }}</h4>
+</div>
+
+<!-- Підключення Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Тут має бути JS код, що малює графіки на основі даних з бекенда
+    // Приклад пустих графіків:
+    
+    const expensesCtx = document.getElementById('expensesChart').getContext('2d');
+    const incomesCtx = document.getElementById('incomesChart').getContext('2d');
+
+    const expensesChart = new Chart(expensesCtx, {
+        type: 'bar',
+        data: {
+            labels: ['March', 'April', 'May'], // приклад
+            datasets: [{
+                label: 'Expenses',
+                data: [100, 200, 150],  // ці дані треба замінити на реальні з бекенда
+                backgroundColor: 'rgba(255, 99, 132, 0.5)'
+            }]
+        },
+    });
+
+    const incomesChart = new Chart(incomesCtx, {
+        type: 'bar',
+        data: {
+            labels: ['March', 'April', 'May'], // приклад
+            datasets: [{
+                label: 'Incomes',
+                data: [300, 250, 400],  // ці дані теж треба підставити
+                backgroundColor: 'rgba(54, 162, 235, 0.5)'
+            }]
+        },
+    });
+</script>
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from expenses.models import Income
+from incomes.models import Income
 from django.contrib.auth import get_user_model
 from datetime import datetime
 from calendar import monthrange

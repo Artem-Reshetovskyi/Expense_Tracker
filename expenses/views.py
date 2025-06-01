@@ -1,9 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Expense
 from .forms import ExpenseForm
-from .models import Income
-from .forms import IncomeForm
-from django.db.models import Q
 from datetime import datetime
 from django.contrib.auth.decorators import login_required # Декоратор для захисту від неавторизованого доступу  
 
@@ -45,7 +42,7 @@ def add_expense(request):
             expense = form.save(commit=False)  # Створюємо об'єкт витрати, але не зберігаємо його ще
             expense.user = request.user  # Прив'язуємо витрату до поточного користувача
             expense.save()  # Зберігаємо витрату в базі даних
-            return redirect("expense_list")  
+            return redirect("expenses:expense_list")
     else:
         form = ExpenseForm()
 
@@ -53,24 +50,24 @@ def add_expense(request):
 
 
 @login_required  # Додаємо захист для функції редагування витрат
-def edit_expense(request, expense_id):
-    expense = get_object_or_404(Expense, id=expense_id)  # Отримуємо витрату або повертаємо 404
+def edit_expense(request, pk):
+    expense = get_object_or_404(Expense, id=pk)  # Отримуємо витрату або повертаємо 404
     if request.method == "POST":
         form = ExpenseForm(request.POST, instance=expense)  # Форма із заповненими даними
         if form.is_valid():
             form.save()  # Зберігаємо зміни
-            return redirect("expense_list")  # Повертаємося до списку витрат
+            return redirect("expenses:expense_list")  # Повертаємося до списку витрат
     else:
         form = ExpenseForm(instance=expense)  # Заповнюємо форму поточними даними
     return render(request, "expenses/edit_expense.html", {"form": form, "expense": expense})
 
 
 @login_required  # Додаємо захист для функції видалення витрат
-def delete_expense(request, expense_id):
-    expense = get_object_or_404(Expense, id=expense_id)
+def delete_expense(request, pk):
+    expense = get_object_or_404(Expense, id=pk)
     if request.method == "POST":
         expense.delete()
-        return redirect("expense_list")
+        return redirect("expenses:expense_list")
 
     return render(request, "expenses/delete_expense.html", {"expense": expense})
 
@@ -79,77 +76,6 @@ def delete_expense(request, expense_id):
 def delete_all_expenses(request):
     if request.method == "POST":
         Expense.objects.all().delete()
-        return redirect("expense_list")
+        return redirect("expenses:expense_list")
 
     return render(request, "expenses/delete_all_expenses.html")
-
-# Incomes - це доходи користувача, які він може додавати, редагувати та видаляти.
-@login_required
-def income_list(request):
-    incomes = Income.objects.filter(user=request.user)
-   
-    # Фільтрація за описом
-    description = request.GET.get("description")
-    if description:
-        incomes = incomes.filter(description=description)
-
-    # Фільтрація за датою
-    date_from = request.GET.get("date_from", "")
-    date_to = request.GET.get("date_to", "")
-    if date_from:
-        incomes = incomes.filter(date__gte=datetime.strptime(date_from, "%Y-%m-%d"))
-    if date_to:
-        incomes = incomes.filter(date__lte=datetime.strptime(date_to, "%Y-%m-%d"))
-
-    # Сортування
-    sort_by = request.GET.get("sort_by", "")
-    if sort_by == "amount":
-        incomes = incomes.order_by("amount")
-    elif sort_by == "date":
-        incomes = incomes.order_by("date")
-        
-    return render(request, "incomes/income_list.html", {"incomes": incomes})
-
-
-
-@login_required
-def income_create(request):
-    if request.method == "POST":
-        form = IncomeForm(request.POST)
-        if form.is_valid():
-            income = form.save(commit=False)
-            income.user = request.user
-            income.save()
-            return redirect("income_list")
-    else:
-        form = IncomeForm()
-    return render(request, "incomes/income_form.html", {"form": form})
-
-
-@login_required
-def income_edit(request, pk):
-    income = Income.objects.get(pk=pk, user=request.user)
-    if request.method == "POST":
-        form = IncomeForm(request.POST, instance=income)
-        if form.is_valid():
-            form.save()
-            return redirect("income_list")
-    else:
-        form = IncomeForm(instance=income)
-    return render(request, "incomes/income_form.html", {"form": form})
-
-
-@login_required
-def income_delete(request, pk):
-    income = Income.objects.get(pk=pk, user=request.user)
-    if request.method == "POST":
-        income.delete()
-        return redirect("income_list")
-    return render(request, "incomes/income_confirm_delete.html", {"income": income})
-
-@login_required
-def delete_all_incomes(request):
-    if request.method == "POST":
-        Income.objects.all().delete()
-        return redirect("income_list")
-    return render(request, "incomes/delete_all_incomes.html")
