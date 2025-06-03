@@ -2,96 +2,92 @@
 {% load i18n %}
 {% block content %}
 
-<h1>{% trans "Dashboard" %}</h1>
+<h1 class="text mt-4">{% trans "Dashboard" %}</h1>
 
-<div class="card-container">
-    <div class="card text-bg-success mb-3">
-        <div class="card-body">
-            <h5 class="card-title">{% trans "Total Incomes" %}</h5>
-            <p class="card-text">{{ total_incomes }} ₴</p>
+<div class="container mt-4">
+  <h2 class="text-center mb-4">{% trans "Financial Overview" %}</h2>
+
+  <!-- Картки: Дохід, Витрати, Баланс -->
+  <div class="row text-center mb-4">
+    <!-- Дохід -->
+    <div class="col-sm-6 col-md-4 col-md-3">
+      <div class="card bg-success text-white shadow">
+        <div class="card-body p-2">
+          <h6 class="card-title mb-1">{% trans "Total Income" %}</h6>
+          <p class="card-text fs-5">${{ total_incomes|floatformat:2 }}</p>
         </div>
+      </div>
     </div>
-    <div class="card text-bg-danger mb-3">
-        <div class="card-body">
-            <h5 class="card-title">{% trans "Total Expenses" %}</h5>
-            <p class="card-text">{{ total_expenses }} ₴</p>
+  
+    <!-- Витрати -->
+    <div class="col-sm-6 col-md-4 col-md-3">
+      <div class="card bg-danger text-white shadow">
+        <div class="card-body p-2">
+          <h6 class="card-title">{% trans "Total Expenses" %}</h6>
+          <p class="card-text fs-5">${{ total_expenses|floatformat:2 }}</p>
         </div>
+      </div>
     </div>
-    <div class="card text-bg-primary mb-3">
-        <div class="card-body">
-            <h5 class="card-title">{% trans "Balance" %}</h5>
-            <p class="card-text">{{ balance }} ₴</p>
+  
+    <!-- Баланс -->
+    <div class="col-sm-6 col-md-4 col-md-3">
+      <div class="card bg-primary text-white shadow">
+        <div class="card-body p-2">
+          <h6 class="card-title">{% trans "Balance" %}</h6>
+          <p class="card-text fs-5">${{ balance|floatformat:2 }}</p>
         </div>
+      </div>
     </div>
+  </div>
+  
+
+  <!-- Діаграми -->
+  <div class="row">
+    <div class="col-md-6 mb-4 text-center">
+      <h5>{% trans "Expenses by Category" %}</h5>
+      <canvas id="expenseChart" width="300" height="300"></canvas>
+    </div>
+    <div class="col-md-6 mb-4 text-center">
+      <h5>{% trans "Incomes by Description" %}</h5>
+      <canvas id="incomeChart" width="300" height="300"></canvas>
+    </div>
+  </div>
 </div>
 
-<div>
-  <canvas id="expensesChart" width="400" height="200"></canvas>
-</div>
 
-<div>
-  <canvas id="incomesChart" width="400" height="200"></canvas>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  const expensesData = {
-    labels: [
-      {% for e in expenses %}
-        "{{ e.date|date:'Y-m-d' }}",
-      {% endfor %}
-    ],
-    datasets: [{
-      label: '{% trans "Expenses" %}',
-      data: [
-        {% for e in expenses %}
-          {{ e.amount }},
-        {% endfor %}
-      ],
-      borderColor: 'rgb(255, 99, 132)',
-      fill: false,
-    }]
-  };
+  const categoryLabels = {{ category_labels|safe }};
+  const categoryData = {{ category_data|safe }};
+  const incomeLabels = {{ income_labels|safe }};
+  const incomeData = {{ income_data|safe }};
 
-  const incomesData = {
-    labels: [
-      {% for i in incomes %}
-        "{{ i.date|date:'Y-m-d' }}",
-      {% endfor %}
-    ],
-    datasets: [{
-      label: '{% trans "Incomes" %}',
-      data: [
-        {% for i in incomes %}
-          {{ i.amount }},
-        {% endfor %}
-      ],
-      borderColor: 'rgb(54, 162, 235)',
-      fill: false,
-    }]
-  };
+  // Витрати
+  const expenseCtx = document.getElementById('expenseChart').getContext('2d');
+  new Chart(expenseCtx, {
+    type: 'pie',
+    data: {
+      labels: categoryLabels,
+      datasets: [{
+        label: 'Expenses by Category',
+        data: categoryData,
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#8E44AD', '#2ECC71']
+      }]
+    }
+  });
 
-  const configExpenses = {
-    type: 'line',
-    data: expensesData,
-    options: {}
-  };
-
-  const configIncomes = {
-    type: 'line',
-    data: incomesData,
-    options: {}
-  };
-
-  new Chart(
-    document.getElementById('expensesChart'),
-    configExpenses
-  );
-
-  new Chart(
-    document.getElementById('incomesChart'),
-    configIncomes
-  );
+  // Доходи
+  const incomeCtx = document.getElementById('incomeChart').getContext('2d');
+  new Chart(incomeCtx, {
+    type: 'pie',
+    data: {
+      labels: incomeLabels,
+      datasets: [{
+        label: 'Income by Description',
+        data: incomeData,
+        backgroundColor: ['#3498DB', '#E67E22', '#1ABC9C', '#F1C40F', '#E74C3C', '#9B59B6']
+      }]
+    }
+  });
 </script>
 
 {% endblock %}
