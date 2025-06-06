@@ -1,41 +1,39 @@
 from django.shortcuts import render
-from django.db import models
-from django.contrib.auth.decorators import (
-    login_required,
-)
+from django.db.models import Sum
+from django.contrib.auth.decorators import login_required
 from expenses.models import Expense
 from incomes.models import Income
-from django.db.models import Sum
-from django.utils import timezone
 from django.utils.translation import gettext as _
-from datetime import datetime
-from collections import defaultdict
 import json
+
 
 @login_required
 def dashboard(request):
+    # Отримання дати початку та кінця з GET параметрів
+    start_date = request.GET.get("start_date")
+    end_date = request.GET.get("end_date")
 
-    # Загальна сума доходів і витрат
-    total_incomes = Income.objects.aggregate(total=models.Sum("amount"))["total"] or 0
-    total_expenses = Expense.objects.aggregate(total=models.Sum("amount"))["total"] or 0
+    income_queryset = Income.objects.filter(user=request.user)
+    expense_queryset = Expense.objects.filter(user=request.user)
 
-    # Баланс
+    if start_date and end_date:
+        income_queryset = income_queryset.filter(date__range=[start_date, end_date])
+        expense_queryset = expense_queryset.filter(date__range=[start_date, end_date])
+
+    total_incomes = income_queryset.aggregate(total=Sum("amount"))["total"] or 0
+    total_expenses = expense_queryset.aggregate(total=Sum("amount"))["total"] or 0
     balance = total_incomes - total_expenses
 
     # Дані для діаграми витрат по категоріях
-    expenses_by_category = (
-        Expense.objects.filter(user=request.user)
-        .values("category")
-        .annotate(total=Sum("amount"))
+    expenses_by_category = expense_queryset.values("category").annotate(
+        total=Sum("amount")
     )
     category_labels = [_(item["category"]) for item in expenses_by_category]
     category_data = [float(item["total"]) for item in expenses_by_category]
 
     # Дані для діаграми доходів по описах
-    incomes_by_description = (
-        Income.objects.filter(user=request.user)
-        .values("description")
-        .annotate(total=Sum("amount"))
+    incomes_by_description = income_queryset.values("description").annotate(
+        total=Sum("amount")
     )
     income_labels = [_(item["description"]) for item in incomes_by_description]
     income_data = [float(item["total"]) for item in incomes_by_description]
@@ -49,5 +47,5 @@ def dashboard(request):
         "income_labels": json.dumps(income_labels),
         "income_data": json.dumps(income_data),
     }
-    
+
     return render(request, "main/dashboard.html", context)

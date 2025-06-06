@@ -4,7 +4,9 @@
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <h1>{% trans "Your Incomes" %}</h1>
-    <a class="btn btn-success mb-2" href="{% url 'incomes:add_income' %}">{% trans "Add Income" %}</a>
+    <a href="{% url 'incomes:add_income' %}">
+        <button>{% trans "Add Income" %}</button>
+    </a>
     <!-- Форма для фільтрації та сортування доходів -->
     <form method="get" action="{% url 'incomes:income_list' %}">
         <!-- Фільтр за описом доходу -->
@@ -28,19 +30,18 @@
             <option value="other"
                     {% if request.GET.description == 'other' %}selected{% endif %}>{% trans "Other" %}</option>
         </select>
-        <!-- Кнопка фільтрації -->
-        <button type="submit">{% trans "Filter" %}</button>
         <!-- Фільтр за датою -->
         <label for="date_from">{% trans "From date" %}:</label>
-        <input type="date"
-               name="date_from"
-               id="date_from"
-               value="{{ request.GET.date_from }}">
+        <input type="date" name="date_from" id="start_date" value="{{ request.GET.date_from }}">
         <label for="date_to">{% trans "To date" %}:</label>
         <input type="date"
-               name="date_to"
-               id="date_to"
-               value="{{ request.GET.date_to }}">
+        name="date_to"
+        id="end_date"
+        value="{{ request.GET.date_to }}">
+
+        <!-- Кнопка фільтрації -->
+        <button type="submit">{% trans "Filter" %}</button>
+
         <!-- Сортування -->
         <label for="sort_by">{% trans "Sort by" %}:</label>
         <select name="sort_by" id="sort_by">
@@ -53,7 +54,7 @@
         <!-- Кнопка сортування -->
         <button type="submit">{% trans "Sort" %}</button>
         <!-- Кнопка скидання фільтрів -->
-        <button type="reset"
+        <button type="reset" 
                 onclick="window.location.href='{% url 'incomes:income_list' %}'">{% trans "Reset" %}</button>
     </form>
     <div class="table-responsive mt-3">
@@ -91,4 +92,7 @@
     <div class="d-flex justify-content-end mb-3">
         <a href="{% url 'incomes:delete_all_incomes' %}" class="btn btn-warning">⚠️ {% trans "Delete All Incomes" %}</a>
     </div>
-{% endblock %}
+    {% block scripts %}
+    <script src="{% static 'js/date_filter.js' %}"></script>
+    {% endblock %}
+{% endblock %}    

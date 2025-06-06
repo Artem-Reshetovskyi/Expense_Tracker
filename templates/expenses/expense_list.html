@@ -27,19 +27,20 @@
             <option value="other"
                     {% if request.GET.category == 'other' %}selected{% endif %}>{% trans "Other" %}</option>
         </select>
-        <!-- Кнопка фільтрації -->
-        <button type="submit">{% trans "Filter" %}</button>
         <!-- Фільтр за датою -->
         <label for="date_from">{% trans "From date" %}:</label>
         <input type="date"
-               name="date_from"
-               id="date_from"
-               value="{{ request.GET.date_from }}">
+        name="date_from"
+        id="start_date"
+        value="{{ request.GET.date_from }}">
         <label for="date_to">{% trans "To date" %}:</label>
         <input type="date"
-               name="date_to"
-               id="date_to"
-               value="{{ request.GET.date_to }}">
+        name="date_to"
+        id="end_date"
+        value="{{ request.GET.date_to }}">
+        <!-- Кнопка фільтрації -->
+        <button type="submit">{% trans "Filter" %}</button>
+        
         <!-- Сортування -->
         <label for="sort_by">{% trans "Sort by" %}:</label>
         <select name="sort_by" id="sort_by">
@@ -99,4 +100,8 @@
         <a href="{% url 'expenses:delete_all_expenses' %}"
            class="btn btn-warning">⚠️ {% trans "Delete All Expenses" %}</a>
     </div>
+    
+    {% block scripts %}
+    <script src="{% static 'js/date_filter.js' %}"></script>
+    {% endblock %}
 {% endblock %}

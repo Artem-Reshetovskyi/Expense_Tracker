@@ -8,11 +8,12 @@ from .forms import ExpenseForm
 from .models import Expense
 
 
-# Expense - це витрати, які користувач може додавати, редагувати та видаляти.
 # Відображення списку витрат з можливістю фільтрації та сортування
 @login_required
 def expense_list(request):
-    expenses = Expense.objects.all()  # За замовчуванням беремо всі витрати
+    expenses = Expense.objects.filter(
+        user=request.user
+    )  # За замовчуванням беремо всі витрати
     category = request.GET.get("category")  # Отримуємо категорію з параметрів URL
     sort_by = request.GET.get("sort_by")  # Отримуємо параметр для сортування
 
