@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-01 05:08+0200\n"
+"POT-Creation-Date: 2025-06-07 00:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,320 +19,355 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14) ? 2 : 3);\n"
 
-#: .\config\settings.py:114
+#: .\config\settings.py:117
 msgid "English"
 msgstr "English"
 
-#: .\config\settings.py:115
+#: .\config\settings.py:118
 msgid "Polski"
 msgstr "Polski"
 
-#: .\config\settings.py:116
+#: .\config\settings.py:119
 msgid "Українська"
 msgstr "Українська"
 
-#: .\config\settings.py:117
+#: .\config\settings.py:120
 msgid "Русский"
 msgstr "Русский"
 
-#: .\expenses\forms.py:22 .\expenses\forms.py:42
+#: .\expenses\forms.py:22 .\incomes\forms.py:26
 msgid "Chooce..."
 msgstr "Виберіть..."
 
-#: .\expenses\forms.py:32 .\expenses\models.py:14
-#: .\expenses\templates\expenses\expense_list.html:39
-#: .\expenses\templates\expenses\expense_list.html:59
-#: .\expenses\templates\incomes\income_list.html:39
-#: .\expenses\templates\incomes\income_list.html:57
-msgid "Amount"
-msgstr "Сума"
-
-#: .\expenses\forms.py:33 .\expenses\models.py:39
-#: .\expenses\templates\incomes\income_list.html:56
-msgid "Description"
-msgstr "Опис"
-
-#: .\expenses\forms.py:34 .\expenses\models.py:16
-#: .\expenses\templates\expenses\expense_list.html:40
-#: .\expenses\templates\expenses\expense_list.html:56
-#: .\expenses\templates\incomes\income_list.html:40
-#: .\expenses\templates\incomes\income_list.html:55
-msgid "Date"
-msgstr "Дата"
-
-#: .\expenses\models.py:7 .\expenses\templates\expenses\expense_list.html:18
+#: .\expenses\models.py:8 .\templates\expenses\expense_list.html:18
 msgid "Food"
 msgstr "Їжа"
 
-#: .\expenses\models.py:8 .\expenses\templates\expenses\expense_list.html:19
+#: .\expenses\models.py:9 .\templates\expenses\expense_list.html:20
 msgid "Transport"
 msgstr "Транспорт"
 
-#: .\expenses\models.py:9 .\expenses\templates\expenses\expense_list.html:20
+#: .\expenses\models.py:10 .\templates\expenses\expense_list.html:23
 msgid "Entertainment"
 msgstr "Розваги"
 
-#: .\expenses\models.py:10 .\expenses\templates\expenses\expense_list.html:21
+#: .\expenses\models.py:11 .\templates\expenses\expense_list.html:26
 msgid "Bills"
 msgstr "Рахунки"
 
-#: .\expenses\models.py:11 .\expenses\models.py:35
-#: .\expenses\templates\expenses\expense_list.html:22
-#: .\expenses\templates\incomes\income_list.html:22
+#: .\expenses\models.py:12 .\incomes\models.py:14
+#: .\templates\expenses\expense_list.html:28
+#: .\templates\incomes\income_list.html:31
 msgid "Other"
 msgstr "Інше"
 
-#: .\expenses\models.py:13
+#: .\expenses\models.py:16
 msgid "Expense Name"
 msgstr "Назва витрати"
 
-#: .\expenses\models.py:15 .\expenses\templates\expenses\expense_list.html:57
+#: .\expenses\models.py:19 .\incomes\forms.py:16
+#: .\templates\expenses\expense_list.html:49
+#: .\templates\expenses\expense_list.html:67
+#: .\templates\incomes\income_list.html:50
+#: .\templates\incomes\income_list.html:66
+msgid "Amount"
+msgstr "Сума"
+
+#: .\expenses\models.py:22 .\templates\expenses\expense_list.html:65
 msgid "Category"
 msgstr "Категорія"
 
-#: .\expenses\models.py:19
+#: .\expenses\models.py:24 .\incomes\forms.py:18
+#: .\templates\expenses\expense_list.html:51
+#: .\templates\expenses\expense_list.html:64
+#: .\templates\incomes\income_list.html:52
+#: .\templates\incomes\income_list.html:64
+msgid "Date"
+msgstr "Дата"
+
+#: .\expenses\models.py:27
 msgid "Expense"
 msgstr "Витрати"
 
-#: .\expenses\models.py:20 .\expenses\templates\base.html:26
+#: .\expenses\models.py:28 .\templates\base.html:38
 msgid "Expenses"
 msgstr "Витрати"
 
-#: .\expenses\models.py:29 .\expenses\templates\incomes\income_list.html:16
+#: .\incomes\forms.py:17 .\incomes\models.py:23
+#: .\templates\incomes\income_list.html:65
+msgid "Description"
+msgstr "Опис"
+
+#: .\incomes\models.py:8 .\templates\incomes\income_list.html:17
 msgid "Salary"
 msgstr "Зарплата"
 
-#: .\expenses\models.py:30 .\expenses\templates\incomes\income_list.html:17
+#: .\incomes\models.py:9 .\templates\incomes\income_list.html:19
 msgid "Bonus"
 msgstr "Премія"
 
-#: .\expenses\models.py:31 .\expenses\templates\incomes\income_list.html:18
+#: .\incomes\models.py:10 .\templates\incomes\income_list.html:22
 msgid "Investment"
 msgstr "Інвестиції"
 
-#: .\expenses\models.py:32 .\expenses\templates\incomes\income_list.html:19
+#: .\incomes\models.py:11 .\templates\incomes\income_list.html:25
 msgid "Freelance"
 msgstr "Підробіток"
 
-#: .\expenses\models.py:33 .\expenses\templates\incomes\income_list.html:20
+#: .\incomes\models.py:12 .\templates\incomes\income_list.html:27
 msgid "Rent"
 msgstr "Оренда"
 
-#: .\expenses\models.py:34 .\expenses\templates\incomes\income_list.html:21
+#: .\incomes\models.py:13 .\templates\incomes\income_list.html:29
 msgid "Sale"
 msgstr "Продаж"
 
-#: .\expenses\models.py:43 .\expenses\templates\base.html:29
+#: .\incomes\models.py:28 .\templates\base.html:41
 msgid "Income"
 msgstr "Дохід"
 
-#: .\expenses\models.py:44
+#: .\incomes\models.py:29
 msgid "Incomes"
 msgstr "Доходи"
 
-#: .\expenses\templates\accounts\login.html:5
-#: .\expenses\templates\accounts\login.html:9 .\expenses\templates\base.html:49
+#: .\templates\accounts\login.html:4 .\templates\accounts\login.html:8
+#: .\templates\base.html:66
 msgid "Login"
 msgstr "Увійти"
 
-#: .\expenses\templates\accounts\login.html:11
+#: .\templates\accounts\login.html:11
 msgid "Don't have an account?"
 msgstr "Не маєте облікового запису?"
 
-#: .\expenses\templates\accounts\register.html:5
-#: .\expenses\templates\accounts\register.html:9
-#: .\expenses\templates\base.html:50
+#: .\templates\accounts\register.html:4 .\templates\accounts\register.html:8
+#: .\templates\base.html:67
 msgid "Register"
 msgstr "Реєстрація"
 
-#: .\expenses\templates\accounts\register.html:11
+#: .\templates\accounts\register.html:11
 msgid "Already have an account?"
 msgstr "Вже маєте акаунт?"
 
-#: .\expenses\templates\base.html:10 .\expenses\templates\base.html:18
+#: .\templates\base.html:12 .\templates\base.html:25
 msgid "Budget Tracker"
 msgstr "Бюджетний трекер"
 
-#: .\expenses\templates\base.html:20
+#: .\templates\base.html:32
 msgid "Toggle navigation"
 msgstr "Переключити навігацію"
 
-#: .\expenses\templates\base.html:46
+#: .\templates\base.html:63
 msgid "Logged in as"
 msgstr "Увійшли як"
 
-#: .\expenses\templates\base.html:47
+#: .\templates\base.html:64
 msgid "Logout"
 msgstr "Вийти"
 
-#: .\expenses\templates\expenses\add_expense.html:6
-#: .\expenses\templates\expenses\expense_list.html:10
+#: .\templates\expenses\add_expense.html:5
+#: .\templates\expenses\expense_list.html:9
 msgid "Add Expense"
 msgstr "Додати витрату"
 
-#: .\expenses\templates\expenses\add_expense.html:11
-#: .\expenses\templates\expenses\edit_expense.html:11
-#: .\expenses\templates\incomes\income_form.html:11
+#: .\templates\expenses\add_expense.html:10
+#: .\templates\expenses\edit_expense.html:10
+#: .\templates\incomes\income_form.html:10
 msgid "Save"
 msgstr "Зберегти"
 
-#: .\expenses\templates\expenses\add_expense.html:12
-#: .\expenses\templates\expenses\delete_all_expenses.html:11
-#: .\expenses\templates\expenses\delete_expense.html:11
-#: .\expenses\templates\expenses\edit_expense.html:12
-#: .\expenses\templates\incomes\delete_all_incomes.html:11
-#: .\expenses\templates\incomes\income_confirm_delete.html:10
-#: .\expenses\templates\incomes\income_form.html:12
+#: .\templates\expenses\add_expense.html:12
+#: .\templates\expenses\delete_all_expenses.html:12
+#: .\templates\expenses\delete_expense.html:12
+#: .\templates\expenses\edit_expense.html:12
+#: .\templates\incomes\delete_all_incomes.html:12
+#: .\templates\incomes\income_confirm_delete.html:9
+#: .\templates\incomes\income_form.html:12
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: .\expenses\templates\expenses\delete_all_expenses.html:6
-#: .\expenses\templates\expenses\expense_list.html:89
+#: .\templates\expenses\delete_all_expenses.html:5
+#: .\templates\expenses\expense_list.html:101
 msgid "Delete All Expenses"
 msgstr "Видалити всі витрати"
 
-#: .\expenses\templates\expenses\delete_all_expenses.html:7
-#: .\expenses\templates\expenses\delete_expense.html:7
-#: .\expenses\templates\incomes\delete_all_incomes.html:7
+#: .\templates\expenses\delete_all_expenses.html:7
+#: .\templates\expenses\delete_expense.html:7
+#: .\templates\incomes\delete_all_incomes.html:7
 msgid "Are you sure you want to delete"
 msgstr "Ви впевнені, що хочете видалити"
 
-#: .\expenses\templates\expenses\delete_all_expenses.html:7
+#: .\templates\expenses\delete_all_expenses.html:7
 msgid "all expenses"
 msgstr "всі витрати"
 
-#: .\expenses\templates\expenses\delete_all_expenses.html:7
-#: .\expenses\templates\incomes\delete_all_incomes.html:7
+#: .\templates\expenses\delete_all_expenses.html:7
+#: .\templates\incomes\delete_all_incomes.html:7
 msgid "This action cannot be undone"
 msgstr "Цю дію неможливо скасувати"
 
-#: .\expenses\templates\expenses\delete_all_expenses.html:10
-#: .\expenses\templates\incomes\delete_all_incomes.html:10
+#: .\templates\expenses\delete_all_expenses.html:11
+#: .\templates\incomes\delete_all_incomes.html:11
 msgid "Yes, Delete All"
 msgstr "Так, видалити всі"
 
-#: .\expenses\templates\expenses\delete_expense.html:6
+#: .\templates\expenses\delete_expense.html:5
 msgid "Delete Expense"
 msgstr "Видалити витрату"
 
-#: .\expenses\templates\expenses\delete_expense.html:10
+#: .\templates\expenses\delete_expense.html:11
 msgid "Yes, Delete"
 msgstr "Так, видалити"
 
-#: .\expenses\templates\expenses\edit_expense.html:6
+#: .\templates\expenses\edit_expense.html:5
 msgid "Edit Expense"
 msgstr "Редагувати витрату"
 
-#: .\expenses\templates\expenses\expense_list.html:7
+#: .\templates\expenses\expense_list.html:6
 msgid "Expense List"
 msgstr "Список витрат"
 
-#: .\expenses\templates\expenses\expense_list.html:15
+#: .\templates\expenses\expense_list.html:14
 msgid "Filter by Category"
 msgstr "Фільтрувати за категорією"
 
-#: .\expenses\templates\expenses\expense_list.html:17
+#: .\templates\expenses\expense_list.html:16
 msgid "All Categories"
 msgstr "Всі категорії"
 
-#: .\expenses\templates\expenses\expense_list.html:26
-#: .\expenses\templates\incomes\income_list.html:26
-msgid "Filter"
-msgstr "Фільтрувати"
-
-#: .\expenses\templates\expenses\expense_list.html:29
-#: .\expenses\templates\incomes\income_list.html:29
+#: .\templates\expenses\expense_list.html:31
+#: .\templates\incomes\income_list.html:34
 msgid "From date"
 msgstr "Дата від"
 
-#: .\expenses\templates\expenses\expense_list.html:32
-#: .\expenses\templates\incomes\income_list.html:32
+#: .\templates\expenses\expense_list.html:36
+#: .\templates\incomes\income_list.html:36
 msgid "To date"
 msgstr "Дата до"
 
-#: .\expenses\templates\expenses\expense_list.html:36
-#: .\expenses\templates\incomes\income_list.html:36
+#: .\templates\expenses\expense_list.html:42
+#: .\templates\incomes\income_list.html:43 .\templates\main\dashboard.html:46
+msgid "Filter"
+msgstr "Фільтрувати"
+
+#: .\templates\expenses\expense_list.html:45
+#: .\templates\incomes\income_list.html:46
 msgid "Sort by"
 msgstr "Сортувати за"
 
-#: .\expenses\templates\expenses\expense_list.html:38
-#: .\expenses\templates\incomes\income_list.html:38
+#: .\templates\expenses\expense_list.html:47
+#: .\templates\incomes\income_list.html:48
 msgid "Select"
 msgstr "Вибрати"
 
-#: .\expenses\templates\expenses\expense_list.html:44
-#: .\expenses\templates\incomes\income_list.html:44
+#: .\templates\expenses\expense_list.html:54
+#: .\templates\incomes\income_list.html:55
 msgid "Sort"
 msgstr "Сортувати"
 
-#: .\expenses\templates\expenses\expense_list.html:47
-#: .\expenses\templates\incomes\income_list.html:47
+#: .\templates\expenses\expense_list.html:57
+#: .\templates\incomes\income_list.html:58 .\templates\main\dashboard.html:47
 msgid "Reset"
 msgstr "Скинути"
 
-#: .\expenses\templates\expenses\expense_list.html:58
+#: .\templates\expenses\expense_list.html:66
 msgid "Name"
 msgstr "Назва"
 
-#: .\expenses\templates\expenses\expense_list.html:60
-#: .\expenses\templates\incomes\income_list.html:58
+#: .\templates\expenses\expense_list.html:68
+#: .\templates\incomes\income_list.html:67
 msgid "Actions"
 msgstr "Дії"
 
-#: .\expenses\templates\expenses\expense_list.html:73
-#: .\expenses\templates\incomes\income_list.html:69
+#: .\templates\expenses\expense_list.html:85
+#: .\templates\incomes\income_list.html:79
 msgid "Edit"
 msgstr "Редагувати"
 
-#: .\expenses\templates\expenses\expense_list.html:76
-#: .\expenses\templates\incomes\income_list.html:70
+#: .\templates\expenses\expense_list.html:89
+#: .\templates\incomes\income_list.html:81
 msgid "Delete"
 msgstr "Видалити"
 
-#: .\expenses\templates\incomes\delete_all_incomes.html:6
-#: .\expenses\templates\incomes\income_list.html:84
+#: .\templates\incomes\delete_all_incomes.html:5
+#: .\templates\incomes\income_list.html:93
 msgid "Delete All Incomes"
 msgstr "Видалити всі доходи"
 
-#: .\expenses\templates\incomes\delete_all_incomes.html:7
+#: .\templates\incomes\delete_all_incomes.html:7
 msgid "all incomes"
 msgstr "всі доходи"
 
-#: .\expenses\templates\incomes\income_confirm_delete.html:5
+#: .\templates\incomes\income_confirm_delete.html:4
 msgid "Delete Income"
 msgstr "Видалити дохід"
 
-#: .\expenses\templates\incomes\income_confirm_delete.html:6
+#: .\templates\incomes\income_confirm_delete.html:5
 msgid "Are you sure you want to delete this income?"
 msgstr "Ви впевнені, що хочете видалити цей дохід?"
 
-#: .\expenses\templates\incomes\income_confirm_delete.html:9
+#: .\templates\incomes\income_confirm_delete.html:8
 msgid "Yes, delete"
 msgstr "Так, видалити"
 
-#: .\expenses\templates\incomes\income_form.html:6
+#: .\templates\incomes\income_form.html:5
 msgid "Income Form"
 msgstr "Форма доходу"
 
-#: .\expenses\templates\incomes\income_list.html:7
+#: .\templates\incomes\income_list.html:6
 msgid "Your Incomes"
 msgstr "Ваші доходи"
 
-#: .\expenses\templates\incomes\income_list.html:8
+#: .\templates\incomes\income_list.html:8
 msgid "Add Income"
 msgstr "Додати дохід"
 
-#: .\expenses\templates\incomes\income_list.html:13
+#: .\templates\incomes\income_list.html:13
 msgid "Filter by Description"
 msgstr "Фільтрувати за описом"
 
-#: .\expenses\templates\incomes\income_list.html:15
+#: .\templates\incomes\income_list.html:15
 msgid "All Descriptions"
 msgstr "Усі описи"
 
-#: .\expenses\templates\incomes\income_list.html:75
+#: .\templates\incomes\income_list.html:86
 msgid "No incomes yet."
 msgstr "Доходів ще немає"
+
+#: .\templates\main\dashboard.html:6
+msgid "Dashboard"
+msgstr "Приладова панель"
+
+#: .\templates\main\dashboard.html:9
+msgid "Financial Overview"
+msgstr "Фінансовий огляд"
+
+#: .\templates\main\dashboard.html:16
+msgid "Total Income:"
+msgstr "Всі доходи"
+
+#: .\templates\main\dashboard.html:22
+msgid "Total Expenses:"
+msgstr "Всі витрати"
+
+#: .\templates\main\dashboard.html:28
+msgid "Balance:"
+msgstr "Баланс"
+
+#: .\templates\main\dashboard.html:38
+msgid "From date"
+msgstr "Дата від"
+
+#: .\templates\main\dashboard.html:42
+msgid "To date"
+msgstr "Дата до"
+
+#: .\templates\main\dashboard.html:57
+msgid "Expenses by Category"
+msgstr "Витрати за категоріями"
+
+#: .\templates\main\dashboard.html:61
+msgid "Incomes by Description"
+msgstr "Доходи за описом"
 
 #~ msgid "Expense Tracker"
 #~ msgstr "Трекер витрат"

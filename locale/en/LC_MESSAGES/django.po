@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-01 05:08+0200\n"
+"POT-Creation-Date: 2025-06-07 00:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English <LL@li.org>\n"
@@ -18,338 +18,385 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\config\settings.py:114
+#: .\config\settings.py:117
 msgid "English"
 msgstr "English"
 
-#: .\config\settings.py:115
+#: .\config\settings.py:118
 msgid "Polski"
 msgstr "Polski"
 
-#: .\config\settings.py:116
+#: .\config\settings.py:119
 msgid "Українська"
 msgstr "Українська"
 
-#: .\config\settings.py:117
+#: .\config\settings.py:120
 msgid "Русский"
 msgstr "Русский"
 
-#: .\expenses\forms.py:22 .\expenses\forms.py:42
+#: .\expenses\forms.py:22 .\incomes\forms.py:26
 msgid "Chooce..."
 msgstr ""
 
-#: .\expenses\forms.py:32 .\expenses\models.py:14
-#: .\expenses\templates\expenses\expense_list.html:39
-#: .\expenses\templates\expenses\expense_list.html:59
-#: .\expenses\templates\incomes\income_list.html:39
-#: .\expenses\templates\incomes\income_list.html:57
-msgid "Amount"
-msgstr "Amount"
-
-#: .\expenses\forms.py:33 .\expenses\models.py:39
-#: .\expenses\templates\incomes\income_list.html:56
-msgid "Description"
-msgstr "Description"
-
-#: .\expenses\forms.py:34 .\expenses\models.py:16
-#: .\expenses\templates\expenses\expense_list.html:40
-#: .\expenses\templates\expenses\expense_list.html:56
-#: .\expenses\templates\incomes\income_list.html:40
-#: .\expenses\templates\incomes\income_list.html:55
-msgid "Date"
-msgstr "Date"
-
-#: .\expenses\models.py:7 .\expenses\templates\expenses\expense_list.html:18
+#: .\expenses\models.py:8 .\templates\expenses\expense_list.html:18
 msgid "Food"
 msgstr "Food"
 
-#: .\expenses\models.py:8 .\expenses\templates\expenses\expense_list.html:19
+#: .\expenses\models.py:9 .\templates\expenses\expense_list.html:20
 msgid "Transport"
 msgstr "Transport"
 
-#: .\expenses\models.py:9 .\expenses\templates\expenses\expense_list.html:20
+#: .\expenses\models.py:10 .\templates\expenses\expense_list.html:23
 msgid "Entertainment"
 msgstr "Entertainment"
 
-#: .\expenses\models.py:10 .\expenses\templates\expenses\expense_list.html:21
+#: .\expenses\models.py:11 .\templates\expenses\expense_list.html:26
 msgid "Bills"
 msgstr "Bills"
 
-#: .\expenses\models.py:11 .\expenses\models.py:35
-#: .\expenses\templates\expenses\expense_list.html:22
-#: .\expenses\templates\incomes\income_list.html:22
+#: .\expenses\models.py:12 .\incomes\models.py:14
+#: .\templates\expenses\expense_list.html:28
+#: .\templates\incomes\income_list.html:31
 msgid "Other"
 msgstr "Other"
 
-#: .\expenses\models.py:13
+#: .\expenses\models.py:16
 msgid "Expense Name"
 msgstr "Expense Name"
 
-#: .\expenses\models.py:15 .\expenses\templates\expenses\expense_list.html:57
+#: .\expenses\models.py:19 .\incomes\forms.py:16
+#: .\templates\expenses\expense_list.html:49
+#: .\templates\expenses\expense_list.html:67
+#: .\templates\incomes\income_list.html:50
+#: .\templates\incomes\income_list.html:66
+msgid "Amount"
+msgstr "Amount"
+
+#: .\expenses\models.py:22 .\templates\expenses\expense_list.html:65
 msgid "Category"
 msgstr "Category"
 
-#: .\expenses\models.py:19
+#: .\expenses\models.py:24 .\incomes\forms.py:18
+#: .\templates\expenses\expense_list.html:51
+#: .\templates\expenses\expense_list.html:64
+#: .\templates\incomes\income_list.html:52
+#: .\templates\incomes\income_list.html:64
+msgid "Date"
+msgstr "Date"
+
+#: .\expenses\models.py:27
 #, fuzzy
 #| msgid "Expenses"
 msgid "Expense"
 msgstr "Expenses"
 
-#: .\expenses\models.py:20 .\expenses\templates\base.html:26
+#: .\expenses\models.py:28 .\templates\base.html:38
 msgid "Expenses"
 msgstr "Expenses"
 
-#: .\expenses\models.py:29 .\expenses\templates\incomes\income_list.html:16
+#: .\incomes\forms.py:17 .\incomes\models.py:23
+#: .\templates\incomes\income_list.html:65
+msgid "Description"
+msgstr "Description"
+
+#: .\incomes\models.py:8 .\templates\incomes\income_list.html:17
 msgid "Salary"
 msgstr "Salary"
 
-#: .\expenses\models.py:30 .\expenses\templates\incomes\income_list.html:17
+#: .\incomes\models.py:9 .\templates\incomes\income_list.html:19
 msgid "Bonus"
 msgstr "Bonus"
 
-#: .\expenses\models.py:31 .\expenses\templates\incomes\income_list.html:18
+#: .\incomes\models.py:10 .\templates\incomes\income_list.html:22
 msgid "Investment"
 msgstr "Investment"
 
-#: .\expenses\models.py:32 .\expenses\templates\incomes\income_list.html:19
+#: .\incomes\models.py:11 .\templates\incomes\income_list.html:25
 msgid "Freelance"
 msgstr ""
 
-#: .\expenses\models.py:33 .\expenses\templates\incomes\income_list.html:20
+#: .\incomes\models.py:12 .\templates\incomes\income_list.html:27
 msgid "Rent"
 msgstr "Rent"
 
-#: .\expenses\models.py:34 .\expenses\templates\incomes\income_list.html:21
+#: .\incomes\models.py:13 .\templates\incomes\income_list.html:29
 msgid "Sale"
 msgstr "Sale"
 
-#: .\expenses\models.py:43 .\expenses\templates\base.html:29
+#: .\incomes\models.py:28 .\templates\base.html:41
 msgid "Income"
 msgstr "Income"
 
-#: .\expenses\models.py:44
+#: .\incomes\models.py:29
 msgid "Incomes"
 msgstr "Incomes"
 
-#: .\expenses\templates\accounts\login.html:5
-#: .\expenses\templates\accounts\login.html:9 .\expenses\templates\base.html:49
+#: .\templates\accounts\login.html:4 .\templates\accounts\login.html:8
+#: .\templates\base.html:66
 msgid "Login"
 msgstr "Login"
 
-#: .\expenses\templates\accounts\login.html:11
+#: .\templates\accounts\login.html:11
 msgid "Don't have an account?"
 msgstr "Don't have an account?"
 
-#: .\expenses\templates\accounts\register.html:5
-#: .\expenses\templates\accounts\register.html:9
-#: .\expenses\templates\base.html:50
+#: .\templates\accounts\register.html:4 .\templates\accounts\register.html:8
+#: .\templates\base.html:67
 msgid "Register"
 msgstr "Register"
 
-#: .\expenses\templates\accounts\register.html:11
+#: .\templates\accounts\register.html:11
 msgid "Already have an account?"
 msgstr "Already have an account?"
 
-#: .\expenses\templates\base.html:10 .\expenses\templates\base.html:18
+#: .\templates\base.html:12 .\templates\base.html:25
 msgid "Budget Tracker"
 msgstr "Budget Tracker"
 
-#: .\expenses\templates\base.html:20
+#: .\templates\base.html:32
 msgid "Toggle navigation"
 msgstr "Toggle navigation"
 
-#: .\expenses\templates\base.html:46
+#: .\templates\base.html:63
 msgid "Logged in as"
 msgstr "Logged in as"
 
-#: .\expenses\templates\base.html:47
+#: .\templates\base.html:64
 msgid "Logout"
 msgstr "Logout"
 
-#: .\expenses\templates\expenses\add_expense.html:6
-#: .\expenses\templates\expenses\expense_list.html:10
+#: .\templates\expenses\add_expense.html:5
+#: .\templates\expenses\expense_list.html:9
 msgid "Add Expense"
 msgstr "Add Expense"
 
-#: .\expenses\templates\expenses\add_expense.html:11
-#: .\expenses\templates\expenses\edit_expense.html:11
-#: .\expenses\templates\incomes\income_form.html:11
+#: .\templates\expenses\add_expense.html:10
+#: .\templates\expenses\edit_expense.html:10
+#: .\templates\incomes\income_form.html:10
 msgid "Save"
 msgstr "Save"
 
-#: .\expenses\templates\expenses\add_expense.html:12
-#: .\expenses\templates\expenses\delete_all_expenses.html:11
-#: .\expenses\templates\expenses\delete_expense.html:11
-#: .\expenses\templates\expenses\edit_expense.html:12
-#: .\expenses\templates\incomes\delete_all_incomes.html:11
-#: .\expenses\templates\incomes\income_confirm_delete.html:10
-#: .\expenses\templates\incomes\income_form.html:12
+#: .\templates\expenses\add_expense.html:12
+#: .\templates\expenses\delete_all_expenses.html:12
+#: .\templates\expenses\delete_expense.html:12
+#: .\templates\expenses\edit_expense.html:12
+#: .\templates\incomes\delete_all_incomes.html:12
+#: .\templates\incomes\income_confirm_delete.html:9
+#: .\templates\incomes\income_form.html:12
 msgid "Cancel"
 msgstr "Cancel"
 
-#: .\expenses\templates\expenses\delete_all_expenses.html:6
-#: .\expenses\templates\expenses\expense_list.html:89
+#: .\templates\expenses\delete_all_expenses.html:5
+#: .\templates\expenses\expense_list.html:101
 msgid "Delete All Expenses"
 msgstr "Delete All Expenses"
 
-#: .\expenses\templates\expenses\delete_all_expenses.html:7
-#: .\expenses\templates\expenses\delete_expense.html:7
-#: .\expenses\templates\incomes\delete_all_incomes.html:7
+#: .\templates\expenses\delete_all_expenses.html:7
+#: .\templates\expenses\delete_expense.html:7
+#: .\templates\incomes\delete_all_incomes.html:7
 msgid "Are you sure you want to delete"
 msgstr "Are you sure you want to delete"
 
-#: .\expenses\templates\expenses\delete_all_expenses.html:7
+#: .\templates\expenses\delete_all_expenses.html:7
 msgid "all expenses"
 msgstr "all expenses"
 
-#: .\expenses\templates\expenses\delete_all_expenses.html:7
-#: .\expenses\templates\incomes\delete_all_incomes.html:7
+#: .\templates\expenses\delete_all_expenses.html:7
+#: .\templates\incomes\delete_all_incomes.html:7
 msgid "This action cannot be undone"
 msgstr "This action cannot be undone"
 
-#: .\expenses\templates\expenses\delete_all_expenses.html:10
-#: .\expenses\templates\incomes\delete_all_incomes.html:10
+#: .\templates\expenses\delete_all_expenses.html:11
+#: .\templates\incomes\delete_all_incomes.html:11
 msgid "Yes, Delete All"
 msgstr "Yes, Delete All"
 
-#: .\expenses\templates\expenses\delete_expense.html:6
+#: .\templates\expenses\delete_expense.html:5
 msgid "Delete Expense"
 msgstr "Delete Expense"
 
-#: .\expenses\templates\expenses\delete_expense.html:10
+#: .\templates\expenses\delete_expense.html:11
 msgid "Yes, Delete"
 msgstr "Yes, Delete"
 
-#: .\expenses\templates\expenses\edit_expense.html:6
+#: .\templates\expenses\edit_expense.html:5
 msgid "Edit Expense"
 msgstr "Edit Expense"
 
-#: .\expenses\templates\expenses\expense_list.html:7
+#: .\templates\expenses\expense_list.html:6
 msgid "Expense List"
 msgstr "Expense List"
 
-#: .\expenses\templates\expenses\expense_list.html:15
+#: .\templates\expenses\expense_list.html:14
 msgid "Filter by Category"
 msgstr "Filter by Category"
 
-#: .\expenses\templates\expenses\expense_list.html:17
+#: .\templates\expenses\expense_list.html:16
 msgid "All Categories"
 msgstr "All Categories"
 
-#: .\expenses\templates\expenses\expense_list.html:26
-#: .\expenses\templates\incomes\income_list.html:26
-msgid "Filter"
-msgstr "Filter"
-
-#: .\expenses\templates\expenses\expense_list.html:29
-#: .\expenses\templates\incomes\income_list.html:29
+#: .\templates\expenses\expense_list.html:31
+#: .\templates\incomes\income_list.html:34
 #, fuzzy
 #| msgid "Date"
 msgid "From date"
 msgstr "Date"
 
-#: .\expenses\templates\expenses\expense_list.html:32
-#: .\expenses\templates\incomes\income_list.html:32
+#: .\templates\expenses\expense_list.html:36
+#: .\templates\incomes\income_list.html:36
 msgid "To date"
 msgstr ""
 
-#: .\expenses\templates\expenses\expense_list.html:36
-#: .\expenses\templates\incomes\income_list.html:36
+#: .\templates\expenses\expense_list.html:42
+#: .\templates\incomes\income_list.html:43 .\templates\main\dashboard.html:46
+msgid "Filter"
+msgstr "Filter"
+
+#: .\templates\expenses\expense_list.html:45
+#: .\templates\incomes\income_list.html:46
 msgid "Sort by"
 msgstr "Sort by"
 
-#: .\expenses\templates\expenses\expense_list.html:38
-#: .\expenses\templates\incomes\income_list.html:38
+#: .\templates\expenses\expense_list.html:47
+#: .\templates\incomes\income_list.html:48
 msgid "Select"
 msgstr "Select"
 
-#: .\expenses\templates\expenses\expense_list.html:44
-#: .\expenses\templates\incomes\income_list.html:44
+#: .\templates\expenses\expense_list.html:54
+#: .\templates\incomes\income_list.html:55
 msgid "Sort"
 msgstr "Sort"
 
-#: .\expenses\templates\expenses\expense_list.html:47
-#: .\expenses\templates\incomes\income_list.html:47
+#: .\templates\expenses\expense_list.html:57
+#: .\templates\incomes\income_list.html:58 .\templates\main\dashboard.html:47
 msgid "Reset"
 msgstr "Reset"
 
-#: .\expenses\templates\expenses\expense_list.html:58
+#: .\templates\expenses\expense_list.html:66
 msgid "Name"
 msgstr "Name"
 
-#: .\expenses\templates\expenses\expense_list.html:60
-#: .\expenses\templates\incomes\income_list.html:58
+#: .\templates\expenses\expense_list.html:68
+#: .\templates\incomes\income_list.html:67
 msgid "Actions"
 msgstr "Actions"
 
-#: .\expenses\templates\expenses\expense_list.html:73
-#: .\expenses\templates\incomes\income_list.html:69
+#: .\templates\expenses\expense_list.html:85
+#: .\templates\incomes\income_list.html:79
 msgid "Edit"
 msgstr "Edit"
 
-#: .\expenses\templates\expenses\expense_list.html:76
-#: .\expenses\templates\incomes\income_list.html:70
+#: .\templates\expenses\expense_list.html:89
+#: .\templates\incomes\income_list.html:81
 msgid "Delete"
 msgstr "Delete"
 
-#: .\expenses\templates\incomes\delete_all_incomes.html:6
-#: .\expenses\templates\incomes\income_list.html:84
+#: .\templates\incomes\delete_all_incomes.html:5
+#: .\templates\incomes\income_list.html:93
 #, fuzzy
 #| msgid "Delete Expense"
 msgid "Delete All Incomes"
 msgstr "Delete Expense"
 
-#: .\expenses\templates\incomes\delete_all_incomes.html:7
+#: .\templates\incomes\delete_all_incomes.html:7
 #, fuzzy
 #| msgid "Incomes"
 msgid "all incomes"
 msgstr "Incomes"
 
-#: .\expenses\templates\incomes\income_confirm_delete.html:5
+#: .\templates\incomes\income_confirm_delete.html:4
 #, fuzzy
 #| msgid "Delete Expense"
 msgid "Delete Income"
 msgstr "Delete Expense"
 
-#: .\expenses\templates\incomes\income_confirm_delete.html:6
+#: .\templates\incomes\income_confirm_delete.html:5
 #, fuzzy
 #| msgid "Are you sure you want to delete"
 msgid "Are you sure you want to delete this income?"
 msgstr "Are you sure you want to delete"
 
-#: .\expenses\templates\incomes\income_confirm_delete.html:9
+#: .\templates\incomes\income_confirm_delete.html:8
 #, fuzzy
 #| msgid "Yes, Delete"
 msgid "Yes, delete"
 msgstr "Yes, Delete"
 
-#: .\expenses\templates\incomes\income_form.html:6
+#: .\templates\incomes\income_form.html:5
 msgid "Income Form"
 msgstr ""
 
-#: .\expenses\templates\incomes\income_list.html:7
+#: .\templates\incomes\income_list.html:6
 msgid "Your Incomes"
 msgstr ""
 
-#: .\expenses\templates\incomes\income_list.html:8
+#: .\templates\incomes\income_list.html:8
 msgid "Add Income"
 msgstr ""
 
-#: .\expenses\templates\incomes\income_list.html:13
+#: .\templates\incomes\income_list.html:13
 #, fuzzy
 #| msgid "Description"
 msgid "Filter by Description"
 msgstr "Description"
 
-#: .\expenses\templates\incomes\income_list.html:15
+#: .\templates\incomes\income_list.html:15
 #, fuzzy
 #| msgid "Description"
 msgid "All Descriptions"
 msgstr "Description"
 
-#: .\expenses\templates\incomes\income_list.html:75
+#: .\templates\incomes\income_list.html:86
 msgid "No incomes yet."
 msgstr ""
+
+#: .\templates\main\dashboard.html:6
+msgid "Dashboard"
+msgstr ""
+
+#: .\templates\main\dashboard.html:9
+msgid "Financial Overview"
+msgstr ""
+
+#: .\templates\main\dashboard.html:16
+#, fuzzy
+#| msgid "Incomes"
+msgid "Total Income:"
+msgstr "Incomes"
+
+#: .\templates\main\dashboard.html:22
+#, fuzzy
+#| msgid "all expenses"
+msgid "Total Expenses:"
+msgstr "all expenses"
+
+#: .\templates\main\dashboard.html:28
+msgid "Balance:"
+msgstr ""
+
+#: .\templates\main\dashboard.html:38
+#, fuzzy
+#| msgid "Date"
+msgid "From date:"
+msgstr "Date"
+
+#: .\templates\main\dashboard.html:42
+#, fuzzy
+#| msgid "Date"
+msgid "To date:"
+msgstr "Date"
+
+#: .\templates\main\dashboard.html:57
+#, fuzzy
+#| msgid "Filter by Category"
+msgid "Expenses by Category"
+msgstr "Filter by Category"
+
+#: .\templates\main\dashboard.html:61
+#, fuzzy
+#| msgid "Description"
+msgid "Incomes by Description"
+msgstr "Description"
 
 #~ msgid "Utilities"
 #~ msgstr "Utilities"
