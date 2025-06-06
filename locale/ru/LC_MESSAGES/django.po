@@ -237,11 +237,13 @@ msgstr "Все категории"
 
 #: .\templates\expenses\expense_list.html:31
 #: .\templates\incomes\income_list.html:34
+#: .\templates\main\dashboard.html:38
 msgid "From date"
 msgstr "От даты"
 
 #: .\templates\expenses\expense_list.html:36
 #: .\templates\incomes\income_list.html:36
+#: .\templates\main\dashboard.html:42
 msgid "To date"
 msgstr "До даты"
 
@@ -353,14 +355,6 @@ msgstr "Все расходы"
 #: .\templates\main\dashboard.html:28
 msgid "Balance:"
 msgstr "Баланс"
-
-#: .\templates\main\dashboard.html:38
-msgid "From date"
-msgstr "От даты"
-
-#: .\templates\main\dashboard.html:42
-msgid "To date"
-msgstr "До даты"
 
 #: .\templates\main\dashboard.html:57
 msgid "Expenses by Category"
