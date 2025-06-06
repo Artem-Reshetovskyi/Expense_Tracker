@@ -50,4 +50,4 @@ def dashboard(request):
         "income_data": json.dumps(income_data),
     }
     
-    return render(request, "dashboard.html", context)
+    return render(request, "main/dashboard.html", context)
