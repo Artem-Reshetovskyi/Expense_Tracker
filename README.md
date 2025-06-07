@@ -26,7 +26,7 @@ Budżetowy Traker to aplikacja do zarządzania wydatkami, która umożliwia uży
 
 - **Backend:** Django
 - **Baza danych:** SQLite + Django ORM
-- **Frontend:** HTML + Bootstrap (lub wbudowane szablony Django)
+- **Frontend:** HTML + Bootstrap wbudowane szablony Django
 - **Dodatkowe:** PyInstaller (opcjonalnie dla wersji desktopowej)
 
 ## Struktura projektu
