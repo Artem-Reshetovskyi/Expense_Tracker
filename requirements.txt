@@ -1,2 +1,4 @@
 sphinx
 sphinx_rtd_theme
+Django>=4.2,<5.0
+djangorestframework>=3.14
