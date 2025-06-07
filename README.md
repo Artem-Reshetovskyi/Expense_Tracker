@@ -70,7 +70,10 @@ expense_tracker/
 
 ## Dokumentacja
 
-- Dokumentacja generowana za pomocą Sphinx (lub Doxygen dla kodu)
+- Dokumentacja generowana za pomocą Sphinx
+   Aby zobaczyć dokumentację lokalnie:
+   1. Przejdź do folderu `docs/_build/html/`
+   2. Otwórz plik `index.html` w przeglądarce
 - Kod zgodny ze standardami PEP8
 - Diagram klas (opcjonalnie)
 
