@@ -9,6 +9,21 @@ import json
 
 @login_required
 def dashboard(request):
+    """
+    Render the dashboard page showing total incomes, expenses, balance,
+    and chart data filtered optionally by date range.
+
+    Args:
+        request (HttpRequest): The HTTP request object, may contain GET parameters
+                               "start_date" and "end_date" for filtering data.
+
+    Returns:
+        HttpResponse: Rendered dashboard page with context data including:
+                      - total incomes and expenses,
+                      - balance,
+                      - JSON-encoded data for charts of expenses by category
+                        and incomes by description.
+    """
     # Get start and end dates from GET parameters
     start_date = request.GET.get("start_date")
     end_date = request.GET.get("end_date")

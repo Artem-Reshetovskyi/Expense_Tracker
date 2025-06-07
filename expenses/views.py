@@ -1,27 +1,37 @@
+"""
+Views module for managing expenses.
+
+This module contains functions to display a list of expenses,
+add, edit, and delete expenses with authorization protection.
+"""
+
 from datetime import datetime
 
-from django.contrib.auth.decorators import \
-    login_required  # Декоратор для захисту від неавторизованого доступу
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import ExpenseForm
 from .models import Expense
 
 
-# Відображення списку витрат з можливістю фільтрації та сортування
 @login_required
 def expense_list(request):
-    expenses = Expense.objects.filter(
-        user=request.user
-    )  # За замовчуванням беремо всі витрати
-    category = request.GET.get("category")  # Отримуємо категорію з параметрів URL
-    sort_by = request.GET.get("sort_by")  # Отримуємо параметр для сортування
+    """
+    Display a list of user's expenses with filtering and sorting options.
 
-    # Фільтруємо за категорією
+    Args:
+        request (HttpRequest): The HTTP request from the user.
+
+    Returns:
+        HttpResponse: Rendered page with filtered and sorted expenses list.
+    """
+    expenses = Expense.objects.filter(user=request.user)
+    category = request.GET.get("category")
+    sort_by = request.GET.get("sort_by")
+
     if category:
         expenses = expenses.filter(category=category)
 
-    # Фільтруємо за датою
     date_from = request.GET.get("date_from", "")
     date_to = request.GET.get("date_to", "")
     if date_from:
@@ -29,8 +39,6 @@ def expense_list(request):
     if date_to:
         expenses = expenses.filter(date__lte=datetime.strptime(date_to, "%Y-%m-%d"))
 
-    # Сортування
-    sort_by = request.GET.get("sort_by", "")
     if sort_by == "amount":
         expenses = expenses.order_by("amount")
     elif sort_by == "date":
@@ -39,16 +47,24 @@ def expense_list(request):
     return render(request, "expenses/expense_list.html", {"expenses": expenses})
 
 
-@login_required  # Додаємо захист для функції додавання витрат
+@login_required
 def add_expense(request):
+    """
+    Handle the form to add a new expense.
+
+    Args:
+        request (HttpRequest): HTTP GET or POST request.
+
+    Returns:
+        HttpResponse: Redirect to expenses list on success or
+                      page with form to add expense.
+    """
     if request.method == "POST":
         form = ExpenseForm(request.POST)
         if form.is_valid():
-            expense = form.save(
-                commit=False
-            )  # Створюємо об'єкт витрати, але не зберігаємо його ще
-            expense.user = request.user  # Прив'язуємо витрату до поточного користувача
-            expense.save()  # Зберігаємо витрату в базі даних
+            expense = form.save(commit=False)
+            expense.user = request.user
+            expense.save()
             return redirect("expenses:expense_list")
     else:
         form = ExpenseForm()
@@ -56,25 +72,45 @@ def add_expense(request):
     return render(request, "expenses/add_expense.html", {"form": form})
 
 
-@login_required  # Додаємо захист для функції редагування витрат
+@login_required
 def edit_expense(request, pk):
-    expense = get_object_or_404(Expense, id=pk)  # Отримуємо витрату або повертаємо 404
+    """
+    Handle editing of an existing expense.
+
+    Args:
+        request (HttpRequest): HTTP GET or POST request.
+        pk (int): ID of the expense to edit.
+
+    Returns:
+        HttpResponse: Redirect to expenses list on success or
+                      page with edit form.
+    """
+    expense = get_object_or_404(Expense, id=pk)
     if request.method == "POST":
-        form = ExpenseForm(
-            request.POST, instance=expense
-        )  # Форма із заповненими даними
+        form = ExpenseForm(request.POST, instance=expense)
         if form.is_valid():
-            form.save()  # Зберігаємо зміни
-            return redirect("expenses:expense_list")  # Повертаємося до списку витрат
+            form.save()
+            return redirect("expenses:expense_list")
     else:
-        form = ExpenseForm(instance=expense)  # Заповнюємо форму поточними даними
+        form = ExpenseForm(instance=expense)
     return render(
         request, "expenses/edit_expense.html", {"form": form, "expense": expense}
     )
 
 
-@login_required  # Додаємо захист для функції видалення витрат
+@login_required
 def delete_expense(request, pk):
+    """
+    Handle deletion of a specific expense.
+
+    Args:
+        request (HttpRequest): HTTP GET or POST request.
+        pk (int): ID of the expense to delete.
+
+    Returns:
+        HttpResponse: Redirect to expenses list after deletion or
+                      confirmation page.
+    """
     expense = get_object_or_404(Expense, id=pk)
     if request.method == "POST":
         expense.delete()
@@ -83,8 +119,18 @@ def delete_expense(request, pk):
     return render(request, "expenses/delete_expense.html", {"expense": expense})
 
 
-@login_required  # Додаємо захист для функції видалення всіх витрат
+@login_required
 def delete_all_expenses(request):
+    """
+    Handle deletion of all expenses for the user.
+
+    Args:
+        request (HttpRequest): HTTP GET or POST request.
+
+    Returns:
+        HttpResponse: Redirect to expenses list after deletion or
+                      confirmation page.
+    """
     if request.method == "POST":
         Expense.objects.all().delete()
         return redirect("expenses:expense_list")
