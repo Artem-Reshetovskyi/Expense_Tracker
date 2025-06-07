@@ -32,41 +32,21 @@ Budżetowy Traker to aplikacja do zarządzania wydatkami, która umożliwia uży
 ## Struktura projektu
 
 ```
-expense_tracker/
-│── app/
-│   │── models.py
-│   │── routes.py
-│   │── templates/
-│   │── static/
-│── migrations/
-│── tests/
-│── config.py
-│── requirements.txt
-│── README.md
-│── run.py
-```
+Expense_Tracker/
+├── accounts/           # Authentication logic
+├── expenses/           # Expense models, views, templates
+├── incomes/            # Income logic
+├── locale/             # Translation files
+├── static/             # CSS, JS, and images
+├── templates/          # HTML templates
+├── manage.py           # Django management script
+└── ...
 
-## Instalacja i uruchomienie
 
-1. Sklonuj repozytorium:
-   ```bash
-   git clone https://github.com/twoj-user/expense-tracker.git
-   cd expense-tracker
-   ```
-2. Utwórz i aktywuj wirtualne środowisko:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Linux/Mac
-   venv\Scripts\activate  # Windows
-   ```
-3. Zainstaluj zależności:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Uruchom aplikację:
-   ```bash
-   python run.py
-   ```
+📦 PyInstaller & Releases
+❌ Not yet packaged with PyInstaller.
+
+✅ Will be available soon in GitHub Releases
 
 ## Dokumentacja
 
