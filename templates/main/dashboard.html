@@ -69,6 +69,10 @@
   window.categoryData = {{ category_data|safe }};
   window.incomeLabels = {{ income_labels|safe }};
   window.incomeData = {{ income_data|safe }};
+  window.translations = {
+    expenseChartTitle: "{% trans 'Expenses by Category' %}",
+    incomeChartTitle: "{% trans 'Incomes by Description' %}"
+  };
 </script>
 
 <script src="{% static 'js/date_filter.js' %}"></script>

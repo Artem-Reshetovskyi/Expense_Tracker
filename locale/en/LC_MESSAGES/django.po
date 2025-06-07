@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 00:34+0200\n"
+"POT-Creation-Date: 2025-06-07 02:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English <LL@li.org>\n"
@@ -236,14 +236,14 @@ msgid "All Categories"
 msgstr "All Categories"
 
 #: .\templates\expenses\expense_list.html:31
-#: .\templates\incomes\income_list.html:34
+#: .\templates\incomes\income_list.html:34 .\templates\main\dashboard.html:38
 #, fuzzy
 #| msgid "Date"
 msgid "From date"
 msgstr "Date"
 
 #: .\templates\expenses\expense_list.html:36
-#: .\templates\incomes\income_list.html:36
+#: .\templates\incomes\income_list.html:36 .\templates\main\dashboard.html:42
 msgid "To date"
 msgstr ""
 
@@ -374,19 +374,7 @@ msgstr "all expenses"
 msgid "Balance:"
 msgstr ""
 
-#: .\templates\main\dashboard.html:38
-#, fuzzy
-#| msgid "Date"
-msgid "From date:"
-msgstr "Date"
-
-#: .\templates\main\dashboard.html:42
-#, fuzzy
-#| msgid "Date"
-msgid "To date:"
-msgstr "Date"
-
-#: .\templates\main\dashboard.html:57
+#: .\templates\main\dashboard.html:57 .\templates\main\dashboard.html:73
 #, fuzzy
 #| msgid "Filter by Category"
 msgid "Expenses by Category"
@@ -397,6 +385,22 @@ msgstr "Filter by Category"
 #| msgid "Description"
 msgid "Incomes by Description"
 msgstr "Description"
+
+#: .\templates\main\dashboard.html:74
+#, fuzzy
+#| msgid "Description"
+msgid "Income by Description"
+msgstr "Description"
+
+#, fuzzy
+#~| msgid "Date"
+#~ msgid "From date:"
+#~ msgstr "Date"
+
+#, fuzzy
+#~| msgid "Date"
+#~ msgid "To date:"
+#~ msgstr "Date"
 
 #~ msgid "Utilities"
 #~ msgstr "Utilities"

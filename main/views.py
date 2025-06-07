@@ -9,7 +9,7 @@ import json
 
 @login_required
 def dashboard(request):
-    # Отримання дати початку та кінця з GET параметрів
+    # Get start and end dates from GET parameters
     start_date = request.GET.get("start_date")
     end_date = request.GET.get("end_date")
 
@@ -24,19 +24,23 @@ def dashboard(request):
     total_expenses = expense_queryset.aggregate(total=Sum("amount"))["total"] or 0
     balance = total_incomes - total_expenses
 
-    # Дані для діаграми витрат по категоріях
+    # Chart data: expenses by category
     expenses_by_category = expense_queryset.values("category").annotate(
         total=Sum("amount")
     )
-    category_labels = [_(item["category"]) for item in expenses_by_category]
-    category_data = [float(item["total"]) for item in expenses_by_category]
+    category_labels = [
+        str(Expense.CategoryChoices(item["category"]).label) for item in expenses_by_category
+    ]
+    category_data = [round(float(item["total"]), 2) for item in expenses_by_category]
 
-    # Дані для діаграми доходів по описах
+    # Chart data: incomes by description
     incomes_by_description = income_queryset.values("description").annotate(
         total=Sum("amount")
     )
-    income_labels = [_(item["description"]) for item in incomes_by_description]
-    income_data = [float(item["total"]) for item in incomes_by_description]
+    income_labels = [
+        str(Income.DescriptionChoices(item["description"]).label) for item in incomes_by_description
+    ]
+    income_data = [round(float(item["total"]), 2) for item in incomes_by_description]
 
     context = {
         "total_expenses": total_expenses,
