@@ -55,7 +55,7 @@ Expense_Tracker/
    1. Przejdź do folderu `docs/_build/html/`
    2. Otwórz plik `index.html` w przeglądarce
 - Kod zgodny ze standardami PEP8
-- Diagram klas (opcjonalnie)
+- Diagram klas (opcjonalnie) W trakcie realizacji
 
 ## Autorzy
 
